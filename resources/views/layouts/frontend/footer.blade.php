@@ -1,0 +1,13 @@
+    <footer class="footer fixed-bottom ">
+        <div class="">
+            <nav class="nav footer-active mt-4 mg">
+                <a class="nav-link " href="contact1.html"><i class="fas fa-envelope-square"></i></a>
+                <a class="nav-link" href="contact2.html"><i class="fas fa-phone-square"></i></a>
+                <a class="nav-link" href="https://mail.google.com"><i class="fas fa-at"></i></a>
+                <a class="nav-link" href="#"><i class="fab fa-facebook-square"></i></a>
+                <a class="nav-link" href="#"><i class="fab fa-linkedin"></i></a>
+            </nav>
+
+            <span class="copyright">©2015 prachee sthapati . Developed by<a class="nav-link d-inline" href="https://mybdhost.com/" target="_blank">Mybdhost</a></span>
+        </div>
+    </footer>

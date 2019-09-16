@@ -11,10 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+
+Route::get('/', 'HomeController@index')->name('home');
+
+
+
+
+
+Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'BackendController@dashboardHome')->name('dashboardHome');
+
+
+
+});
