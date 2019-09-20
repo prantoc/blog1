@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Greeva - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>prachee sthapati</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -28,6 +28,11 @@
         <link href="{{asset('assets/backend/css/app.css')}}" rel="stylesheet" type="text/css" />
         <!-- endbuild -->
 
+                 <!-- Sweet Alert css -->
+        <link href="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+@yield('styles')
+
     </head>
 
     <body>
@@ -44,8 +49,8 @@
                     <!-- Page title box -->
                       <div class="page-title-box">
                             <ol class="breadcrumb float-right">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Greeva</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Prachee Shapati Dashboard</a></li>
+                                <li class="breadcrumb-item active">{{$title}}</li>
                             </ol>
                             <h4 class="page-title">Dashboard</h4>
                         </div>
@@ -115,6 +120,9 @@
         <script src="{{asset('assets/backend/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
         <script src="{{asset('assets/backend/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
         <script src="{{asset('assets/backend/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+           <!-- Sweet Alert Js  -->
+        <script src="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+        <script src="{{ asset('assets/backend/js/jquery.sweet-alert.init.js') }}"></script>
 
         <!-- Dashboard Init JS -->
         <script src="{{asset('assets/backend/js/jquery.dashboard.js')}}"></script>
@@ -132,6 +140,24 @@
                 });
             } );
         </script>
+
+           <script>
+            @if (session()->has('message'))
+                swal({
+                title: "{!! session()->get('title')  !!}",
+                text: "{!! session()->get('message')  !!}",
+                type: "{!! session()->get('type')  !!}",
+                confirmButtonText: "OK"
+            });
+                {{ Session::forget('message')}}
+            @endif
+
+
+
+        </script>
+
+
+         @yield('scripts')
 
     </body>
 </html>

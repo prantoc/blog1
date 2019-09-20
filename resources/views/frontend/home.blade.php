@@ -11,45 +11,45 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('assets/img/2.jpg')">
+        <div class="carousel-item active" style="background-image: url('{{ asset('img/slider/1.jpg')}}'); background-position: center top;">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">First Slide</h2>
-            <p class="lead">This is a description for the first slide.</p>
+            {{-- <h2 class="display-4">First Slide</h2>
+            <p class="lead">This is a description for the first slide.</p> --}}
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('assets/img/3.jpg')">
+        <div class="carousel-item" style="background-image: url('{{ asset('img/slider/11.jpg')}}'); background-position: center top;">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Second Slide</h2>
-            <p class="lead">This is a description for the second slide.</p>
+           {{--  <h2 class="display-4">Second Slide</h2>
+            <p class="lead">This is a description for the second slide.</p> --}}
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('assets/img/44.jpg')">
+        <div class="carousel-item" style="background-image: url('{{ asset('img/slider/4.jpg')}}'); background-position: center top;">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Third Slide</h2>
-            <p class="lead">This is a description for the third slide.</p>
+           {{--  <h2 class="display-4">Third Slide</h2>
+            <p class="lead">This is a description for the third slide.</p> --}}
           </div>
         </div> 
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('assets/img/2.jpg')">
+        <div class="carousel-item" style="background-image: url('{{ asset('img/slider/6.jpg')}}'); background-position: center top;">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Four Slide</h2>
-            <p class="lead">This is a description for the third slide.</p>
+           {{--  <h2 class="display-4">Four Slide</h2>
+            <p class="lead">This is a description for the third slide.</p> --}}
           </div>
         </div> 
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('assets/img/3.jpg')">
+        <div class="carousel-item" style="background-image: url('assets/img/2.png')">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Five Slide</h2>
-            <p class="lead">This is a description for the third slide.</p>
+           {{--  <h2 class="display-4">Five Slide</h2>
+            <p class="lead">This is a description for the third slide.</p> --}}
           </div>
         </div>
          <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('assets/img/44.jpg')">
+        <div class="carousel-item" style="background-image: url('assets/img/4.png')">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Six Slide</h2>
-            <p class="lead">This is a description for the third slide.</p>
+           {{--  <h2 class="display-4">Six Slide</h2>
+            <p class="lead">This is a description for the third slide.</p> --}}
           </div>
         </div>
       </div>
