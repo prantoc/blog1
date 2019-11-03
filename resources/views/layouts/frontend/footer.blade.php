@@ -8,7 +8,7 @@
                 <a class="nav-link" href="#"><i class="fab fa-linkedin"></i></a>
             </nav>
 
-            <span class="copyright">©2015 prachee sthapati . Developed by<a class="nav-link d-inline" href="https://mybdhost.com/" target="_blank">Mybdhost</a></span>
+            <span class="copyright">©2015 prachee sthapati . Developed by<a class=" d-inline" href="https://mybdhost.com/" target="_blank" style="color: #F7941E; font-weight: 600;">  Mybdhost</a></span>
         </div>
     </footer>
 

@@ -127,7 +127,15 @@ textarea {
   font-size: 16px !important;
   font-weight: bold;
 }
-
+.navbar-light .navbar-nav .nav-link.active{
+  color: rgb(247, 148, 30);
+}
+/*.s-icon i:active{
+  color: rgb(247, 148, 30);
+}*/
+.carousel-indicators i .active {
+   color: rgb(247, 148, 30);
+}
 .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
@@ -174,6 +182,16 @@ textarea {
     top: 30%;
     right: 0%;
 }
+.dropdown-toggle::after {
+    display: none !important;
+
+}
+.dropdown-item{
+  color: rgba(0,0,0,.5);
+}
+.navbar-nav .nav-item:hover .dropdown-menu{
+  display: block !important;
+}
 .copyright{
   color: gray !important;
 }
@@ -186,7 +204,7 @@ textarea {
 }
 
 .carousel-item {
-  height: 82vh;
+  height: 80vh;
   min-height: 350px;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
@@ -219,6 +237,7 @@ textarea {
 .hovereffect img {
   /*display: block;*/
   width: 400px;
+  max-height: 228px;
   position: relative;
   -webkit-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
@@ -318,10 +337,17 @@ color: #F7941E !important;
   }
 .pos-absolute{
   margin-left: -23px;
-}
+ }
   .mydropdown li{
      margin-right: 10px !important;
   }
+  .menu-pos{
+      position: inherit;
+      top: 0;
+      right: 0;
+  }
+
+
 }
 
 @media only screen and (max-width: 768px) {

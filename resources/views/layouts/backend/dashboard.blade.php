@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/backend/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('assets/img/favicon.ico')}}">
 
         <!-- jvectormap -->
         <link href="{{asset('assets/backend/libs/jqvmap/jqvmap.min.css')}}" rel="stylesheet" />
@@ -17,6 +17,13 @@
         <!-- DataTables -->
         <link href="{{asset('assets/backend/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"/>
         <link href="{{asset('assets/backend/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"/>
+
+
+        <!-- DataTables -->
+        <link href="{{asset('assets/backend/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/backend/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/backend/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/backend/libs/datatables.net-select-bs4/css/select.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
 
         <!-- Icons css -->
         <link href="{{asset('assets/backend/libs/@mdi/font/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css" />
@@ -32,6 +39,7 @@
         <link href="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 
 @yield('styles')
+@yield('top-styles')
 
     </head>
 
@@ -57,7 +65,6 @@
                     <!-- End page title box -->
 
                     <div class="row">
-
                         <div class="col-12">
                         <!--  ==================================SESSION MESSAGES==================================  -->
                             @if (session()->has('message'))
@@ -120,6 +127,7 @@
         <script src="{{asset('assets/backend/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
         <script src="{{asset('assets/backend/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
         <script src="{{asset('assets/backend/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+
            <!-- Sweet Alert Js  -->
         <script src="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.js') }}"></script>
         <script src="{{ asset('assets/backend/js/jquery.sweet-alert.init.js') }}"></script>

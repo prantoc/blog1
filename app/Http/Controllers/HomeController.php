@@ -13,6 +13,9 @@ use App\Apply;
 use App\Work;
 use App\WorkFile;
 use App\Slider;
+use App\AddressMap;
+use App\WorkFileMeta;
+use App\WorkFileImg;
 class HomeController extends Controller
 {
     /**
@@ -30,20 +33,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+// Homepage-area-------------------->>>>
     public function index()
     {
-        // $data['hasCats'] = 0;
-        // $data['sliders'] = Slider::get();
-       $data['sliders'] = Slider::orderBy('id', 'asc')->get();
+       $data['sliders'] = Slider::orderBy('position', 'asc')->get();
         return view('frontend.home',$data);
     }
 
-
+// Single page-area-------------------->>>>
     public function getSinglePage($slug) {
-        // $data['title'] = 'Page';
         $data['hasCats'] = 0;
-        
-
         $page = Page::whereSlug($slug)->first();
 
         if ($page) {
@@ -53,17 +53,13 @@ class HomeController extends Controller
         }
 
         $data['page'] = Page::findOrFail($id);
-        //$data['notice'] = $page;
-
-        // $data['hasCats'] = 0;
         $data['eroute'] = 'edit-page';
+
         return view('frontend.about', $data);
     }
+// Single Page Image-area-------------------->>>>
     public function getSinglePageImg($slug) {
-        // $data['title'] = 'Page';
         $data['hasCats'] = 1;
-        
-
         $pageimg = PageImg::whereSlug($slug)->first();
 
         if ($pageimg) {
@@ -73,29 +69,26 @@ class HomeController extends Controller
         }
 
         $data['pageimg'] = PageImg::findOrFail($id);
-        //$data['notice'] = $pageimg;
-
-        // $data['hasCats'] = 0;
         $data['eroute'] = 'edit-principle';
+
         return view('frontend.principle', $data);
     }
-
-     public function getTeam() {
+// Team-area-------------------->>>>
+    public function getTeam() {
         $data['teams'] = Team::orderBy('id', 'asc')->get();
-
         $data['eroute'] = 'edit-team';
         return view('frontend.team', $data);
     }
-public function getClient() {
+// Client-area-------------------->>>>
+    public function getClient() {
         $data['clients'] = Client::orderBy('id', 'desc')->get();
-
         $data['eroute'] = 'edit-client';
         return view('frontend.clients', $data);
     }
-public function getCareer($slug) {
-            $data['hasCats'] = 0;
-        
-
+// Career-area-------------------->>>>
+    public function getCareer($slug) {
+        $data['hasCats'] = 0;
+        $data['eroute'] = 'edit-career';
         $page = Career::whereSlug($slug)->first();
 
         if ($page) {
@@ -105,21 +98,17 @@ public function getCareer($slug) {
         }
 
         $data['page'] = Career::findOrFail($id);
-        //$data['notice'] = $page;
 
-        // $data['hasCats'] = 0;
-        $data['eroute'] = 'edit-career';
         return view('frontend.career', $data);
     }
 
 
-
+// Appliers-area-------------------->>>>
 
     public function addApply()
     {
         $data['title'] = 'Add Apply';
         $data['aroute'] = "post-apply";
-        // $data['hasCats'] = 0;
       
         return view('frontend.career', $data);
     }
@@ -143,21 +132,20 @@ public function getCareer($slug) {
         $apply['up_cv'] = $request->up_cv;
         $apply['up_protfolio'] = $request->up_protfolio;
         $apply['mgs'] = $request->mgs;
-  
-
 
         Apply::create($apply);
-        session()->flash('message', 'You Applied (Prachee Sthapati) succefully!');
+
+        session()->flash('message', 'You Applied (Prachee Sthapati) for the job reason succefully!');
         Session::flash('type', 'success');
         return redirect()->back();
     }
 
 
-
+// Contact-area-------------------->>>>
     public function getContact()
     {
-      
-        return view('frontend.contact');
+        $data['adms'] = AddressMap::find(1);
+        return view('frontend.contact',$data);
     }
     public function getContact1()
     {
@@ -169,13 +157,44 @@ public function getCareer($slug) {
       
         return view('frontend.contact2');
     }
+// work-area-------------------->>>>
     public function getWork()
     {
+       $data['eroute'] = 'edit-work';
        $data['works'] = Work::orderBy('id', 'asc')->get();
-       $data['workfiles'] = WorkFile::orderBy('id', 'desc')->get();
+       
+
         return view('frontend.work',$data);
     }
+// workfile-area-------------------->>>>
+    public function getAllWorkSingle($slug) 
+    {
+        $data['works'] = Work::orderBy('id', 'asc')->get();
 
+        $nid = Work::whereSlug($slug)->first();
 
+        $cats = WorkFileMeta::whereWorkId($nid->id)->get();
+
+        $data['cats'] = $cats;
+
+        $data['eroute'] = 'edit-workfile';
+
+        return view('frontend.single-work', $data);
+    }
+// Work image slider page -area-------------------->>>>
+     public function getWorkImg($slug) 
+    {
+        $data['works'] = Work::orderBy('id', 'asc')->get();
+
+        $nid = WorkFile::whereSlug($slug)->first();
+
+        $cats = WorkfileImg::whereWorkfileId($nid->id)->get();
+
+        $data['cats'] = $cats;
+
+        $data['eroute'] = 'edit-workfileimg';
+
+        return view('frontend.work-img-slider', $data);
+    }
 
 }

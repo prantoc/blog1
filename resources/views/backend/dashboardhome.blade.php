@@ -5,6 +5,7 @@
    <div class="col-lg-12">
       <!--  ==================================SESSION MESSAGES==================================  -->
       <!--  ==================================SESSION MESSAGES==================================  -->
+      
    </div>
 </div>
 <div class="row">
@@ -48,14 +49,6 @@
          </div>
       </div>
    </div>
- {{--   <div class="col-xl-3 col-lg-4 col-md-6">
-      <div class="card-box widget-chart-one gradient-success bx-shadow-lg">
-         <div class="text-right">
-            <p class="text-white mb-0 mt-2">Total Notices</p>
-            <h3 class="text-white">7</h3>
-         </div>
-      </div>
-   </div> --}}
 </div>
       
 @endsection

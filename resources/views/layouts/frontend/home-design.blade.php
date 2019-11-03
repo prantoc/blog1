@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
+    {{-- <link rel="apple-touch-icon" href="icon.png"> --}}
     <!-- Place favicon.ico in the root directory -->
     <!-- Booststrap & fontawsome Css -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -16,6 +16,9 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+
+     <!-- App favicon -->
+        <link rel="shortcut icon" href="{{asset('assets/img/favicon.ico')}}">
 
     <meta name="theme-color" content="#fafafa">
 </head>
@@ -42,6 +45,17 @@
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/all.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.bundle.js')}}"></script>
+    <script>
+        
+        if(!function_exists('is_active_menu')){
+
+    function is_active_menu($url){
+
+        return \Route::is($url) ? 'active' : '';
+    }
+
+}
+    </script>
 
 </body>
 

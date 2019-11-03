@@ -17,6 +17,17 @@
 
 
 
+/*
+|--------------------------------------------------------------------------
+| Frontend Web Routes
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+
+
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'page'], function () {
@@ -36,6 +47,18 @@ Route::get('client-page', 'HomeController@getClient')->name('clients');
 Route::get('contact-page', 'HomeController@getContact')->name('contact');
 Route::get('work-page', 'HomeController@getWork')->name('work');
 
+
+Route::group(['prefix' => 'work'], function() {
+
+	Route::get('{slug}', 'HomeController@getAllWorkSingle')->name('all-work-single');
+	Route::get('work-img-page/{slug}', 'HomeController@getWorkImg')->name('work-img-page');
+	// Route::get('category/{slug}', 'HomeController@getPostCategory')->name('post-category');
+	// Route::get('tag/{slug}', 'HomeController@getPostTag')->name('post-tag');
+
+});
+
+
+
 Route::group(['prefix' => 'pagecareer'], function () {
 
 	Route::get('{slug}', 'HomeController@getCareer')->name('career');
@@ -46,6 +69,15 @@ Route::group(['prefix' => 'pagecareer'], function () {
 
 
 
+/*
+|--------------------------------------------------------------------------
+| Backend Web Routes
+|--------------------------------------------------------------------------
+|
+|
+|
+|
+*/
 
 
 
@@ -101,11 +133,6 @@ Route::get('all-appliers', 'BackendController@allAppliers')->name('all-appliers'
 Route::get('delete-applier/{id}', 'BackendController@deleteApplier')->name('delete-applier');
 
 
-
-
-
-
-
 // work routes
 Route::get('add-work', 'BackendController@addWork')->name('add-work');
 Route::post('post-work', 'BackendController@postWork')->name('post-work');
@@ -114,7 +141,7 @@ Route::get('edit-work/{id}', 'BackendController@editWork')->name('edit-work');
 Route::post('edit-work/{id}', 'BackendController@updateWork')->name('update-work');
 Route::get('delete-work/{id}', 'BackendController@deleteWork')->name('delete-work');
 
-// work img text routes
+// workfile routes
 Route::get('add-workfile', 'BackendController@addWorkFile')->name('add-workfile');
 Route::post('post-workfile', 'BackendController@postWorkFile')->name('post-workfile');
 Route::get('all-workfiles', 'BackendController@allWorkFiles')->name('all-workfiles');
@@ -122,12 +149,39 @@ Route::get('edit-workfile/{id}', 'BackendController@editWorkFile')->name('edit-w
 Route::post('edit-workfile/{id}', 'BackendController@updateWorkFile')->name('update-workfile');
 Route::get('delete-workfile/{id}', 'BackendController@deleteWorkFile')->name('delete-workfile');
 
+// workfile img routes
+Route::get('add-workfileimg', 'BackendController@addWorkFileImg')->name('add-workfileimg');
+Route::post('post-workfileimg', 'BackendController@postWorkFileImg')->name('post-workfileimg');
+Route::get('all-workfileimgs', 'BackendController@allWorkFileImgs')->name('all-workfileimgs');
+Route::get('edit-workfileimg/{id}', 'BackendController@editWorkFileImg')->name('edit-workfileimg');
+Route::post('edit-workfileimg/{id}', 'BackendController@updateWorkFileImg')->name('update-workfileimg');
+Route::get('delete-workfileimg/{id}', 'BackendController@deleteWorkFileImg')->name('delete-workfileimg');
+
+// workfile type routes
+Route::get('add-workfiletype', 'BackendController@addWorkFileType')->name('add-workfiletype');
+Route::post('post-workfiletype', 'BackendController@postWorkFileType')->name('post-workfiletype');
+Route::get('all-workfiletypes', 'BackendController@allWorkFileTypes')->name('all-workfiletypes');
+Route::get('edit-workfiletype/{id}', 'BackendController@editWorkFileType')->name('edit-workfiletype');
+Route::post('edit-workfiletype/{id}', 'BackendController@updateWorkFileType')->name('update-workfiletype');
+Route::get('delete-workfiletype/{id}', 'BackendController@deleteWorkFileType')->name('delete-workfiletype');
+
+//Admin Routes
+Route::get('all-admins', 'BackendController@allAdmins')->name('all-admins');
+Route::get('add-admin', 'BackendController@addAdmin')->name('add-admin');
+Route::post('post-admin', 'BackendController@postAdmin')->name('post-admin');
+Route::get('edit-admin/{id}', 'BackendController@editAdmin')->name('edit-admin');
+Route::post('edit-admin/{id}', 'BackendController@updateAdmin')->name('update-admin');
+Route::get('delete-admin/{id}', 'BackendController@deleteAdmin')->name('delete-admin');
+// Route::get('your-profile', $dc.'@getProfile')->name('your-profile');
+// Route::post('your-profile', $dc.'@updateProfile')->name('update-profile');
 
 
+//Settings Routes
+Route::get('address', 'BackendController@getAddress')->name('add-address');
+Route::post('address', 'BackendController@postAddress')->name('post-address');
+Route::get('edit-address/{id}', 'BackendController@editAddress')->name('edit-address');
+Route::post('update-address/{id}', 'BackendController@updateAddress')->name('update-address');
 
-//Slider Routes
-// Route::get('settings', 'BackendController@getSettings')->name('settings');
-// Route::post('settings', 'BackendController@updateSettings')->name('update-settings');
 Route::get('slider', 'BackendController@getSlider')->name('slider');
 Route::post('slider', 'BackendController@addSlider')->name('add-slider');
 Route::post('slider/{id}', 'BackendController@updateSlider')->name('update-slider');

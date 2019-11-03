@@ -16,7 +16,11 @@ class Work extends Model
         'slug','admin_id','title','img',
     ];
 
-    //  public function area() {
-    //     return $this->belongsTo(Area::class, 'location');
+     public function workfile() {
+        return $this->belongsTo(WorkFile::class, 'slug');
+    }
+
+    //  public function subcategory(){
+    //     return $this->hasMany('App\Category', 'parent_id');
     // }
 }

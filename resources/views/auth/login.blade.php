@@ -74,7 +74,7 @@
                                             </div>
 
                                             <div class="form-group mb-3">
-                                                <a href="{{ route('password.request') }}" class="text-muted float-right"><small>Forgot your password?</small></a>
+                                                {{-- <a href="{{ route('password.request') }}" class="text-muted float-right"><small>Forgot your password?</small></a> --}}
                                                 <label for="password" class="font-weight-medium">Password</label>
                                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
@@ -101,11 +101,11 @@
                                             </div>
                                         </form> <!-- end form -->
 
-                                        <div class="row mt-3">
+                                       {{--  <div class="row mt-3">
                                             <div class="col-12 text-center">
                                                 <p class="text-muted">Don't have an account? <a href="{{route('register')}}" class="text-dark m-l-5"><b>Sign Up</b></a></p>
                                             </div>
-                                        </div> <!-- end row-->
+                                        </div> --}} <!-- end row-->
                                     </div> <!-- end account-content -->
 
                                 </div> <!-- end account-box -->
