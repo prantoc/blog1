@@ -6,7 +6,7 @@
           @if($cats->count())
          @foreach($cats as $c)
          <!-- <div class="col-md-2"></div> -->
-         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-3">
+         <div class="col-lg-4 col-md-12 d-flex justify-content-md-center col-sm-12 col-xs-12 mb-3">
             <div class="hovereffect">
                {{-- <img class="img-responsive" src="{{asset('assets/img/3.jpg')}}" alt=""> --}}
                @if($c->workfile->img)

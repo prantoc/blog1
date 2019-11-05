@@ -841,10 +841,21 @@ class BackendController extends Controller
        $this->Validate($request, [
             'title' => 'required|string|max:255',
             'img' => 'required|mimes:jpeg,png,jpg,gif,svg|max:8048',
+            'position' => 'numeric',
         
         ]);
 
        $uid = Auth::user()->id;
+
+          $princ = Work::orderBy('id', 'desc')->count();
+
+        if ($princ >= 11) {
+        session()->flash('message', 'Change an existing Work Name or Delete and add a new one as, Adding more than 11 Work can Effect website menu bar!');
+        Session::flash('type', 'warning');
+        return redirect()->back();
+        }
+
+        
 
        
         if ($request->img) {
@@ -901,6 +912,8 @@ class BackendController extends Controller
         $princ['slug'] = $slug;
         // $princ['img'] = $img;
         $princ['title'] = $request->title;
+
+         $princ['position'] = $princ+1;
         $princ['admin_id'] = $uid;
 
 
@@ -935,6 +948,7 @@ class BackendController extends Controller
          $this->Validate($request, [
             'title' => 'required|string|max:255',
             'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:8048',
+            'position' => 'numeric',
         
         ]);
 
@@ -971,6 +985,7 @@ class BackendController extends Controller
     }
 
         $uprinc['title'] = $request->title;
+        $uprinc['position'] = $request->position;
        
         $uprinc->save();
 
@@ -1133,9 +1148,10 @@ class BackendController extends Controller
            ],$messages);
 
         $uid = Auth::user()->id;
-        $uprinc = WorkFile::findOrFail($id);
+        $wfm = WorkFileMeta::findOrFail($id);
+        $wf = WorkFile::findOrFail($wfm->workfile_id);
 
-                   if ($request->img) {
+            if ($request->img) {
 
             $imgname = pathinfo($request->img->getClientOriginalName(), PATHINFO_FILENAME);
 
@@ -1161,22 +1177,22 @@ class BackendController extends Controller
 
             $request->img->move(public_path('workfile/feature/'), $img);
 
-            $uprinc['img'] = $img;
+            $wf['img'] = $img;
         }
 
-        // $uprinc['work_id'] = $request->work_id;
-        $uprinc['title'] = $request->title;
-        $uprinc['admin_id'] = $uid;
+        // $wfm['work_id'] = $request->work_id;
+        $wf['title'] = $request->title;
+        $wf['admin_id'] = $uid;
 
 
        
-        $uprinc->save();
+        $wf->save();
         
 
         // $cats = $request->work_id;
-        $up = WorkFileMeta::whereWorkId($id);
-        $up['work_id'] = $request->work_id;
-         $up->save();
+        // $up = WorkFileMeta::whereWorkId($id);
+        $wfm['work_id'] = $request->work_id;
+         $wfm->save();
 
         session()->flash('message', 'WorkFile succefully Updated!');
         Session::flash('type', 'success');
@@ -1578,6 +1594,8 @@ class BackendController extends Controller
         Session::flash('type', 'warning');
         return redirect()->back();
         }
+
+
 
         $imgname = pathinfo($request->img->getClientOriginalName(), PATHINFO_FILENAME);
 

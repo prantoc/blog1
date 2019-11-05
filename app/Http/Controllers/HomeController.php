@@ -15,7 +15,7 @@ use App\WorkFile;
 use App\Slider;
 use App\AddressMap;
 use App\WorkFileMeta;
-use App\WorkFileImg;
+use App\WorkfileImg;
 class HomeController extends Controller
 {
     /**
@@ -115,6 +115,15 @@ class HomeController extends Controller
 
     public function postApply(Request $request)
     {
+
+                $messages = [
+         
+            'up_cv.required' => 'The uploaded cv filed is required!',
+            'up_protfolio.required' => 'The uploaded protfolio filed is required!',
+            'mgs.required' => 'The messages filed is required!',
+        ];
+     
+
        $this->Validate($request, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:applies',
@@ -124,7 +133,7 @@ class HomeController extends Controller
             'mgs' => 'required|string|max:255',
             
         
-        ]);
+        ],$messages);
 
         $apply['name'] = $request->name;
         $apply['email'] = $request->email;
@@ -161,7 +170,7 @@ class HomeController extends Controller
     public function getWork()
     {
        $data['eroute'] = 'edit-work';
-       $data['works'] = Work::orderBy('id', 'asc')->get();
+       $data['works'] = Work::orderBy('position', 'asc')->get();
        
 
         return view('frontend.work',$data);

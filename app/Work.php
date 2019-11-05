@@ -13,14 +13,14 @@ class Work extends Model
      * @var array
      */
     protected $fillable = [
-        'slug','admin_id','title','img',
+        'slug','admin_id','title','img','position',
     ];
 
      public function workfile() {
         return $this->belongsTo(WorkFile::class, 'slug');
     }
 
-    //  public function subcategory(){
-    //     return $this->hasMany('App\Category', 'parent_id');
-    // }
+     public function workfiles(){
+        return $this->hasMany('App\WorkFileMeta');
+    }
 }

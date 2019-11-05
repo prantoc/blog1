@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 
      <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/img/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('assets/img/Prachee-Thumb.png')}}">
 
     <meta name="theme-color" content="#fafafa">
 </head>

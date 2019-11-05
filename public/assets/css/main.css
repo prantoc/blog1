@@ -114,7 +114,7 @@ textarea {
 
 .navbar-light .navbar-nav .nav-link {
     color: rgba(0,0,0,.5);
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: bold;
 }
 .dropdown-item.active{
@@ -182,7 +182,7 @@ textarea {
     top: 30%;
     right: 0%;
 }
-.dropdown-toggle::after {
+/*.dropdown-toggle::after {
     display: none !important;
 
 }
@@ -191,7 +191,7 @@ textarea {
 }
 .navbar-nav .nav-item:hover .dropdown-menu{
   display: block !important;
-}
+}*/
 .copyright{
   color: gray !important;
 }
@@ -346,6 +346,13 @@ color: #F7941E !important;
       top: 0;
       right: 0;
   }
+
+
+  .navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    font-size: 13px !important;
+    font-weight: bold;
+}
 
 
 }

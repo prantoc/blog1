@@ -9,11 +9,11 @@
                <tr>
                   <th>ID</th>
                   <th>Title</th>
-                  <th>Work</th>
+                  <th>Image</th>
                   {{-- 
                   <th>Description</th>
                   --}}
-                  <th>Img</th>
+                  <th>Position</th>
                   <th class="text-center" colspan="2"> Action</th>
                </tr>
             </thead>
@@ -30,6 +30,7 @@
                   <td>{!! str_limit(strip_tags($new->details,20)) !!}</td>
                   --}}
                   <td><img src="{{asset('work/feature/'.$new->img)}}" alt="" height="100" width="180"></td>
+                  <td>{{$new->position}}</td>
                   <td><a href="{{route($editroute,$new->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>
                   <td><a data-href="{{route($droute,$new->id)}}" class="btn btn-danger cat-delete" style="margin-left: 26px;"> Delete </a></td>
                

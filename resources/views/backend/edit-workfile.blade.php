@@ -76,7 +76,7 @@
             <div class="float-right">
                <button type="button" class="btn btn-icon btn-light" id="fullWidth"> <i class="icon-size-fullscreen" id="fic"></i> </button>
             </div>
-            <select id="inputState" class="form-control" name="work_id[]" required>
+            <select id="inputState" class="form-control" name="work_id" required>
                <option class="disabled">Choose Work</option>
                @foreach($works as $work)
                <option value="{{$work->id}}"  {{ $work->id == $post->work->id ? 'selected': '' }}>{{$work->title}}</option>

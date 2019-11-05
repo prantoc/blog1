@@ -33,7 +33,7 @@
        <link rel='stylesheet' id='fontawesome-css' href='https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1' type='text/css' media='all' />
 
      <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/img/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('assets/img/Prachee-Thumb.png')}}">
 
     <meta name="theme-color" content="#fafafa">
 </head>

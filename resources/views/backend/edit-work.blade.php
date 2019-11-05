@@ -21,6 +21,10 @@
                <button type="button" class="btn btn-icon btn-light" id="fullWidth"> <i class="icon-size-fullscreen" id="fic"></i> </button>
             </div>
          </div>
+        <div class="m-b-30">
+           <input type="text" class="form-control" name="position" value="{{$news->position}}">
+       
+         </div>
          <div class="form-group col-md-12 card-box">
             <label for="inputZip" class="col-form-label">Feature Image</label><br>
            <img src="{{asset('work/feature/'.$news->img)}}" alt="" height="100" width="180">

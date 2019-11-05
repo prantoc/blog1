@@ -1,6 +1,6 @@
 @extends('layouts.frontend.home-design')
 @section('content')
-<section class="middle-sec-one mt-2">
+<section class="middle-sec-one mt-2 mb-5">
    <div class="container">
       @guest
       @else

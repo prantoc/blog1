@@ -1,6 +1,6 @@
 @extends('layouts.frontend.home-design')
 @section('content')
-<section class="middle-sec-one mt-3">
+<section class="middle-sec-one mt-3 mb-5 pb-5">
    <div class="container-fluid">
       <div class="row">
          <!-- <div class="col-md-2"></div> -->
@@ -30,7 +30,7 @@
             </div>
             <div class="email">
                <p  class="font-weight-bold">
-                  <i class="fa fa-at"></i>  mail@pracheesthapati.com
+                  <i class="fa fa-at"></i>  pracheesthapati@gmail.com
                </p>
             </div>
          </div>

@@ -4,7 +4,7 @@
    <div class="container-fluid">
       <div class="row">
          @foreach($works as $work)
-         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-3">
+         <div class="col-lg-4 col-md-12 d-flex justify-content-md-center col-sm-12 col-xs-12 mb-3">
             <div class="hovereffect">
                @if($work->img)
                <img class="img-responsive" src="{{asset('work/feature/'.$work->img)}}" alt="$work->img" >

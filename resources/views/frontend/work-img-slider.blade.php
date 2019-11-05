@@ -242,8 +242,8 @@ position: relative;
 
             @if($cats->count())
     <!--start-->
-    <div id="ninja-slider">
-            <div class="slider-inner" >
+    <div id="ninja-slider" class=" mb-5">
+            <div class="slider-inner">
                 <ul>
 
                     @foreach($cats as $c)
