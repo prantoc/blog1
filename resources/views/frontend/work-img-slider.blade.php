@@ -242,57 +242,58 @@ position: relative;
 
             @if($cats->count())
     <!--start-->
-    <div id="ninja-slider" class=" mb-5">
+    <div id="ninja-slider" class=" mb-5 mt-4 pt-5">
             <div class="slider-inner">
-                <ul>
-
-                    @foreach($cats as $c)
-      @if($c->file_type == 1)
+              <ul>
+                @foreach($cats as $c)
+                  @if($c->file_type == 1)
                     <li>
-                        <span class="text-center" style="font-size: 15px; font-weight: bold;">
+                      <span class="text-center" style="font-size: 15px; font-weight: bold;">
                    
-                    {!! $c->details !!}
-              </span>
+                        {!! $c->details !!}
+                      </span>
                     </li>
 
-                     @elseif($c->file_type == 2)
-                    <li><a class="ns-img" href="{{asset('workfile/img/'.$c->file)}}"></a>
-
-          
-
+                  @elseif($c->file_type == 2)
+                    <li>
+                      <a class="ns-img" href="{{asset('workfile/img/'.$c->file)}}"></a>
                     </li>
-                    @endif
-              @endforeach
+                  @elseif($c->file_type == 4)
+                    <li>
+                      <a class="ns-img" href="{{asset('workfile/img/'.$c->file)}}"></a>
+                    </li>
+                  @endif
+                @endforeach
                 </ul>
                 {{-- <div class="fs-icon" title="Expand/Close"></div> --}}
             </div>
             <div id="thumbnail-slider">
                 <div class="">
                     <ul>
-@foreach($cats as $ct)
-                      @if($ct->file_type == 1)
-                        <li>
-                            <a class="thumb" href="{{asset('assets/img/y.png')}}" height="20"></a>
-                          {{--   <span><i class="fab fa-tumblr-square"></i></span> --}}
-                        </li>
-                          @elseif($ct->file_type == 2)
-                        <li>
-                            <a class="thumb" href="{{asset('assets/img/i.png')}}" height="20"></a>
-                            {{-- <span><img src="{{asset('assets/img/i.png')}}" alt="" height="20" width="20"></span> --}}
-                        </li>
+                      @foreach($cats as $ct)
+                        @if($ct->file_type == 1)
+                          <li>
+                            <a class="thumb" href="{{asset('assets/img/t.jpg')}}" height="20"></a>
+                          </li>
+                        @elseif($ct->file_type == 2)
+                          <li>
+                            <a class="thumb" href="{{asset('assets/img/image.jpg')}}" height="20"></a>
+                          </li>
 
-                            @endif
-                       @endforeach
-                        
+                        @elseif($ct->file_type == 4)
+                          <li>
+                            <a class="thumb" href="{{asset('assets/img/hatch.jpg')}}" height="20"></a>
+                          </li>
+                        @endif
+                      @endforeach     
                     </ul>
                 </div>
             </div>
-       
-    </div>
+        </div>
 
-                       @else
-         <span class="btn btn-dark w-md px-5 mt-2 mb-2  d-flex justify-content-center text-white text-blod"><small>No data available !</small></span>
-         @endif
+        @else
+          <span class="btn btn-dark w-md px-5 mt-2 mb-2  d-flex justify-content-center text-white text-blod"><small>No data available !</small></span>
+        @endif
 
               
     </div>

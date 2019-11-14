@@ -18,7 +18,7 @@
             <input type="text" name="degree" parsley-trigger="change" required="" placeholder="b. arch. (buet) 2001 m. arch. (buet) 2019" class="form-control" id="emailAddress">
          </div>
          <div class="form-group">
-            <label for="img">Image<span class="text-danger">*</span></label>
+            <label for="img">Image <small style="color: red;">(*Not Mandatory)</small> </label>
             <input type="file" name="img" parsley-trigger="change"  placeholder="Enter img" class="form-control" id="emailAddress">
             <span>(*you can upload max 5mb image file)</span>
          </div>

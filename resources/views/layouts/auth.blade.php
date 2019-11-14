@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('assets/backend/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{asset('assets/img/Prachee-Thumb.png')}}">
 
         <!-- Icons css -->
         <link href="{{ asset('assets/backend/libs/@mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />

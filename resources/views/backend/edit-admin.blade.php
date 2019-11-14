@@ -43,9 +43,35 @@
                               <label for="password-confirm" class="font-weight-medium">{{ __('Confirm Password') }}</label>
                               <input disabled="disabled" placeholder="Enter your password" id="password-confirm" type="password" class="form-control" name="password_confirmation"  autocomplete="new-password">
                            </div> --}}
-                           <div class="form-group">
-                              <button class="btn btn-block btn-success waves-effect waves-light" type="submit">Update </button>
-                           </div>
+
+                         <div class="form-group">
+                           <label for="current_password">Current Password </label>
+                           <input id="current_password" type="password" class="form-control{{ $errors->has('current_password') ? ' is-invalid' : '' }}" name="current_password" required>
+
+                           @if ($errors->has('password'))
+                               <span class="invalid-feedback" role="alert">
+                                   <strong>{{ $errors->first('password') }}</strong>
+                               </span>
+                           @endif
+                         </div>
+                         <hr>
+                         <div class="form-group">
+                          <label for="new_password">New Password</label>
+                           <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                           @if ($errors->has('password'))
+                               <span class="invalid-feedback" role="alert">
+                                   <strong>{{ $errors->first('password') }}</strong>
+                               </span>
+                           @endif
+                         </div>
+                         <div class="form-group">
+                           <label for="confirm_password">Confirm Password</label>
+                           <input type="password" class="form-control" id="password-confirm" name="password_confirmation" required>
+                         </div>
+                        <div class="form-group">
+                           <button class="btn btn-block btn-success waves-effect waves-light" type="submit">Update </button>
+                        </div>
                         </form>
                         <!-- end form -->
                      </div>

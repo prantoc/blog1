@@ -46,7 +46,7 @@
       <div class="col-md-4" id="seditor">
          @if($hasCats)
          <div class="form-group col-md-12 card-box dropzone"  id="myAwesomeDropzone">
-            <label for="inputZip" class="col-form-label">Features Image</label>
+            <label for="inputZip" class="col-form-label">Features Image <small style="color: red;">(*Not Mandatory)</small> </label>
             {{-- <input type="file" name="img" value="{{ old('img') }}" class="form-control" id="inputZip"> --}}
             <input type="file" name="img" value="{{ old('img') }}" class="form-control" id="inputZip" multiple />
             <span>(*you can upload max 5mb image file)</span>

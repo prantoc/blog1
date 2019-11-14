@@ -13,7 +13,7 @@ class AddressMap extends Model
      * @var array
      */
     protected $fillable = [
-        'address','lat','long',
+        'address','lat','long','phone','email','img',
     ];
 
     //  public function area() {

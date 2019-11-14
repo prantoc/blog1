@@ -122,7 +122,7 @@
     background-color:rgba(0,0,0,0.4);
     background-color:#ccc\9;/*IE8 hack*/
     backface-visibility:hidden;
-    color:white;
+    color:;
     overflow:hidden;
     white-space:nowrap;
     -webkit-user-select: none;

@@ -9,33 +9,34 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/img/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('assets/img/Prachee-Thumb.png')}}">
 
         <!-- jvectormap -->
         <link href="{{asset('assets/backend/libs/jqvmap/jqvmap.min.css')}}" rel="stylesheet" />
 
-        <!-- DataTables -->
+{{--         <!-- DataTables -->
         <link href="{{asset('assets/backend/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"/>
-        <link href="{{asset('assets/backend/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{asset('assets/backend/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"/> --}}
 
-
+{{-- 
         <!-- DataTables -->
         <link href="{{asset('assets/backend/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/backend/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/backend/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('assets/backend/libs/datatables.net-select-bs4/css/select.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/backend/libs/datatables.net-select-bs4/css/select.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"> --}}
 
         <!-- Icons css -->
         <link href="{{asset('assets/backend/libs/@mdi/font/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/backend/libs/dripicons/webfont/webfont.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/backend/libs/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet" type="text/css" />
 
-        <!-- App css -->
+        <!-- font-awesome css cdn -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <!-- build:css -->
         <link href="{{asset('assets/backend/css/app.css')}}" rel="stylesheet" type="text/css" />
         <!-- endbuild -->
 
-                 <!-- Sweet Alert css -->
+        <!-- Sweet Alert css -->
         <link href="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 
 @yield('styles')
@@ -121,12 +122,12 @@
         <!-- Jvector map -->
         <script src="{{asset('assets/backend/libs/jqvmap/jquery.vmap.min.js')}}"></script>
         <script src="{{asset('assets/backend/libs/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-
+{{-- 
         <!-- Datatable js -->
         <script src="{{asset('assets/backend/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
         <script src="{{asset('assets/backend/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
         <script src="{{asset('assets/backend/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-        <script src="{{asset('assets/backend/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+        <script src="{{asset('assets/backend/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script> --}}
 
            <!-- Sweet Alert Js  -->
         <script src="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.js') }}"></script>
@@ -138,7 +139,7 @@
         <!-- App js -->
         <script src="{{asset('assets/backend/js/jquery.core.js')}}"></script>
         <script src="{{asset('assets/backend/js/jquery.app.js')}}"></script>
-        <script>
+   {{--      <script>
             $(document).ready(function() {
                 // Default Datatable
                 $('#datatable').DataTable({
@@ -147,9 +148,9 @@
                     "lengthChange": false
                 });
             } );
-        </script>
+        </script> --}}
 
-           <script>
+        <script>
             @if (session()->has('message'))
                 swal({
                 title: "{!! session()->get('title')  !!}",
@@ -159,9 +160,6 @@
             });
                 {{ Session::forget('message')}}
             @endif
-
-
-
         </script>
 
 

@@ -1,6 +1,6 @@
 @extends('layouts.backend.dashboard')  
 @section('top-styles')
-<link href="{{ asset('assets/dashboard/libs/select2/css/select2.min.css')}}" rel="stylesheet" />
+<link href="{{ asset('assets/backend/libs/select2/css/select2.min.css')}}" rel="stylesheet" />
 <style>
    #gmaps-markers {
    height: 280px;
@@ -18,11 +18,41 @@
                <div class="form-group">
                   <label for="address">Address</label>
                   <input type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" id="address" aria-describedby="address" placeholder="Noapara Group" name="address" value="{{ $page->address }}">
-                  <input type="hidden" id="labLat" name="lat" value="{{ old('lat') }}">      
-                  <input type="hidden" id="labLong" name="long" value="{{ old('long') }}"> 
+                  <input type="hidden" id="labLat" name="lat" value="{{ $page->lat }}">      
+                  <input type="hidden" id="labLong" name="long" value="{{ $page->long }}"> 
                   @if ($errors->has('address'))
                   <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('address') }}</strong>
+                  </span>
+                  @endif 
+               </div>
+               <div class="form-group">
+                  <label for="phone">Website Phone Number</label>
+                  <input type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" aria-describedby="phone" placeholder="+880 171 23 456" name="phone" value="{{ $page->phone }}">
+                  @if ($errors->has('phone'))
+                  <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('phone') }}</strong>
+                  </span>
+                  @endif 
+               </div>
+               <div class="form-group">
+                  <label for="email">Website Email</label>
+                  <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" aria-describedby="email" placeholder="+880 171 23 456" name="email" value="{{ $page->email }}">
+                  @if ($errors->has('email'))
+                  <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+                  @endif 
+               </div>
+
+                <div class="form-group">
+                  <label for="img">Website Logo <small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small></label>
+                  <img src="{{asset('img/logo/'.$page->img)}}" alt="" height="100" width="180">
+                  <input type="file" class="form-control{{ $errors->has('img') ? ' is-invalid' : '' }}" id="img" aria-describedby="img" placeholder="" name="img" value="{{ $page->img }}">
+                  <span>(*Please upload 250 to 550kb logo image because of loading issue)</span>
+                  @if ($errors->has('img'))
+                  <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('img') }}</strong>
                   </span>
                   @endif 
                </div>

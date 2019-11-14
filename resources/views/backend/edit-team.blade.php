@@ -18,7 +18,7 @@
             <input type="text" name="degree" parsley-trigger="change" required="" placeholder="b. arch. (buet) 2001 m. arch. (buet) 2019" class="form-control" id="emailAddress" value="{{$team->degree}}">
          </div>
          <div class="form-group">
-            <label for="img">Image<span class="text-danger">*</span></label>
+            <label for="img">Image<small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small></label>
                @if($team->img)
                   <img src="{{asset('img/team/'.$team->img)}}" alt="" style="max-height: 180px;">
                @else

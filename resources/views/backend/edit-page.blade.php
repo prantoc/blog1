@@ -26,8 +26,12 @@
       <div class="col-md-4" id="seditor">
          @if($hasCats)
          <div class="form-group col-md-12 card-box">
-            <label for="inputZip" class="col-form-label">Feature Image</label><br>
-            <img src="{{asset('img/client/'.$news->img)}}" alt="" height="100" width="180">
+            <label for="inputZip" class="col-form-label">Feature Image</label> <small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small><br>
+            @if($news->img)
+              <img src="{{asset('img/client/'.$news->img)}}" alt="" height="100" width="180">
+            @else
+              <img class="img-responsive" src="{{asset('assets/img/no-img.png')}}" alt="" height="100" width="180">
+            @endif
             <input type="file" name="img"  class="form-control">
             <span>(*you can upload max 5mb image file)</span>
          </div>

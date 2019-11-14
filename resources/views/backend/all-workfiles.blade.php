@@ -3,6 +3,10 @@
 <div class="row">
    <div class="col-lg-12">
       <div class="card-box">
+        @if($news->count())
+          <a data-href="{{route($dallroute)}}" class="btn btn-warning cat-delete text-blod float-right mb-2" style="margin-left: 26px;"> If you want to delete  {{$title}} </a>
+        @else
+        @endif
          <h4 class="m-t-0 header-title">{{$title}}</h4>
         
          <table class="table table-sm mb-0 table table-bordered">
@@ -11,8 +15,8 @@
                   <th>ID</th>
                   <th>Title</th>
                   {{-- <th>Title</th> --}}
-                  <th>Img</th>
                   <th>Work</th>
+                  <th>Img</th>
                   <th class="text-center" colspan="2"> Action</th>
                </tr>
             </thead>
@@ -22,7 +26,7 @@
                <tr>
                   <th scope="row">{{$new->id}}</th>
                   <td>{{$new->title}}</td>
-                    {{-- <td>{{$new->workfilemeta->work_id}}</td> --}}
+                    <td>{{$new->work->title}}</td>
                   <td>
                     @if($new->img)
                      <img src="{{asset('workfile/feature/'.$new->img)}}" alt="{{$new->img}}" style="max-height: 75px;">

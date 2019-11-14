@@ -22,12 +22,16 @@
             </div>
          </div>
         <div class="m-b-30">
-           <input type="text" class="form-control" name="position" value="{{$news->position}}">
+           <input type="text" class="form-control form-control-lg" name="position" value="{{$news->position}}">
        
          </div>
          <div class="form-group col-md-12 card-box">
-            <label for="inputZip" class="col-form-label">Feature Image</label><br>
-           <img src="{{asset('work/feature/'.$news->img)}}" alt="" height="100" width="180">
+            <label for="inputZip" class="col-form-label">Feature Image <small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small></label><br>
+              @if($news->img)
+                <img src="{{asset('work/feature/'.$news->img)}}" alt="" style="max-height: 180px;">
+              @else
+                <img src="{{asset('assets/img/no-img.png')}}" alt="" style="max-height: 180px;">
+              @endif
             <input type="file" name="img"  class="form-control">
             <span>(*you can upload max 5mb image file)</span>
          </div>

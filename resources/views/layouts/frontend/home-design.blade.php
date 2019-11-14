@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 
+
+    <!-- Sweet Alert css -->
+    <link href="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
      <!-- App favicon -->
         <link rel="shortcut icon" href="{{asset('assets/img/Prachee-Thumb.png')}}">
 
@@ -41,21 +45,37 @@
         window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')
     </script>
     <script src="{{asset('assets/js/plugins.js')}}"></script>
-    <script src="{{asset('assets/js/main.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/all.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.bundle.js')}}"></script>
+    <!-- Sweet Alert Js  -->
+    <script src="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/jquery.sweet-alert.init.js') }}"></script>
+
+{{--     
     <script>
         
         if(!function_exists('is_active_menu')){
 
-    function is_active_menu($url){
+            function is_active_menu($url){
 
-        return \Route::is($url) ? 'active' : '';
-    }
+            return \Route::is($url) ? 'active' : '';
+            }
 
-}
-    </script>
+        }
+    </script> --}}
+
+        <script>
+            @if (session()->has('message'))
+                swal({
+                title: "{!! session()->get('title')  !!}",
+                text: "{!! session()->get('message')  !!}",
+                type: "{!! session()->get('type')  !!}",
+                confirmButtonText: "OK"
+            });
+                {{ Session::forget('message')}}
+            @endif
+        </script>
 
 </body>
 

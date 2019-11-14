@@ -13,21 +13,22 @@ class WorkFile extends Model
      * @var array
      */
     protected $fillable = [
-         'admin_id','title','slug','img',
+         'admin_id','title','slug','img','work_id',
     ];
 
-    //  public function area() {
-    //     return $this->belongsTo(Area::class, 'location');
+
+    // public function work() {
+    //     return $this->belongsTo(Work::class, 'work_id');
     // }
 
     public function work() {
         return $this->belongsTo(Work::class, 'work_id');
     }
-
-    public function workfilemeta() {
-        return $this->belongsTo(WorkFileMeta::class, 'work_id');
-    }
     public function workfileImg() {
         return $this->belongsTo(WorkfileImg::class, 'workfile_id');
     }
+
+    //  public function work(){
+    //     return $this->hasMany('App\WorkFileMeta');
+    // }
 }

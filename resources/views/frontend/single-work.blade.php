@@ -1,6 +1,6 @@
 @extends('layouts.frontend.work-design')
 @section('content')
-<section class="middle-sec-one mt-3 ml-2">
+<section class="middle-sec-one mt-3 ml-2 mt-5 pt-5">
    <div class="container-fluid">
       <div class="row">
           @if($cats->count())
@@ -9,17 +9,17 @@
          <div class="col-lg-4 col-md-12 d-flex justify-content-md-center col-sm-12 col-xs-12 mb-3">
             <div class="hovereffect">
                {{-- <img class="img-responsive" src="{{asset('assets/img/3.jpg')}}" alt=""> --}}
-               @if($c->workfile->img)
-               <img class="img-responsive" src="{{asset('workfile/feature/'.$c->workfile->img)}}" alt="{{$c->workfile->title}}" style="max-height: 180px;">
+               @if($c->img)
+               <img class="img-responsive" src="{{asset('workfile/feature/'.$c->img)}}" alt="{{$c->title}}" style="max-height: 180px;">
                @else
-               <img class="img-responsive" src="{{asset('assets/img/no-image.jpg')}}" alt="John Doxe" style="max-height: 180px;">
+               <img class="img-responsive" src="{{asset('assets/img/noimage.jpg')}}" alt="" style="max-height: 180px;">
                @endif
                <div class="overlay">
-                  <h2>{{$c->workfile->title}}</h2>
-                  <a class="info" href="{{route('work-img-page',$c->workfile->slug)}}">See Full Post</a>
+                  <h2>{{$c->title}}</h2>
+                  <a class="info" href="{{route('work-img-page',$c->slug)}}">See Full Post</a>
                   @guest
                   @else
-                  <a href="{{route($eroute, $c->workfile->id)}}" class="btn btn-warning">Edit</a>
+                  <a href="{{route($eroute, $c->id)}}" class="btn btn-warning">Edit</a>
                   @endif
                </div>
             </div>

@@ -3,6 +3,10 @@
 <div class="row">
    <div class="col-lg-12">
       <div class="card-box">
+        @if($teams->count())
+          <a data-href="{{route($dallroute)}}" class="btn btn-warning cat-delete text-blod float-right mb-2" style="margin-left: 26px;"> If you want to delete  {{$title}} </a>
+        @else
+        @endif
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-sm mb-0 table table-bordered">
             <thead>
@@ -25,9 +29,9 @@
                   <td>{{$t->degree}}</td>
                   <td>
                      @if($t->img)
-                     <img src="{{asset('img/team/'.$t->img)}}" alt="$t->img" style="max-height: 75px;">
+                     <img src="{{asset('img/team/'.$t->img)}}" alt="" style="max-height: 75px;">
                      @else
-                     <img src="{{asset('assets/img/noimage.jpg')}}" alt="$t->name" style="max-height: 75px;">
+                     <img src="{{asset('assets/img/noimage.jpg')}}" alt="" style="max-height: 75px;">
                      @endif
                   </td>
                   <td><a href="{{route($editroute,$t->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>

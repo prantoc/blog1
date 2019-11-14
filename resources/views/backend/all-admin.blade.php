@@ -25,7 +25,14 @@
                   <td>{{$admin->name}}</td>
                   <td>{{$admin->created_at}}</td>
                   <td><a href="{{route($eroute,$admin->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>
+                @if($admin->id == 4)
+                  <td>
+                    
+                    <span class="help-block bg-dark rounded p-2 text-white"><small>you can't delete these Admin !</small></span>
+                  </td>
+                @else
                   <td><a data-href="{{route($droute,$admin->id)}}" class="btn btn-danger cat-delete text-white" style="margin-left: 26px;"> Delete </a></td>
+                @endif
                </tr>
                @endforeach
                     @else

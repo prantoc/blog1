@@ -3,6 +3,7 @@
 <section class="middle-sec-one mt-3 ml-2">
    <div class="container-fluid">
       <div class="row">
+         @if($works->count())
          @foreach($works as $work)
          <!-- <div class="col-md-2"></div> -->
          <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 mb-3">
@@ -21,6 +22,9 @@
             </div>
          </div>
          @endforeach
+          @else
+          <span class="btn btn-dark w-md px-5 mt-2 mb-2  d-flex justify-content-center text-white text-blod"><small>No data available !</small></span>
+        @endif
       </div>
    </div>
 </section>

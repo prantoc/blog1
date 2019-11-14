@@ -147,8 +147,8 @@
     display: block;
     width: 20px;
     height: 20px;
-    border-left: 3px solid #DDD;
-    border-top: 3px solid #DDD;
+    /*border-left: 3px solid #DDD;
+    border-top: 3px solid #DDD;*/
 }
 
 #thumbnail-slider-prev::before {

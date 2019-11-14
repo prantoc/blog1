@@ -3,8 +3,12 @@
 <div class="row">
    <div class="col-lg-12">
       <div class="card-box">
+        @if($news->count())
+          <a data-href="{{route($dallroute)}}" class="btn btn-warning cat-delete text-blod float-right mb-2" style="margin-left: 26px;"> If you want to delete  {{$title}} </a>
+        @else
+        @endif
          <h4 class="m-t-0 header-title">{{$title}}</h4>
-         <table class="table table-sm mb-0 table table-bordered">
+         <table class="table table-sm mb-2 table table-bordered">
             <thead>
                <tr>
                   <th>ID</th>
@@ -25,11 +29,13 @@
                 
                   <th scope="row">{{$new->id}}</th>
                   <td>{{$new->title}}</td>
-                
-                  {{-- 
-                  <td>{!! str_limit(strip_tags($new->details,20)) !!}</td>
-                  --}}
-                  <td><img src="{{asset('work/feature/'.$new->img)}}" alt="" height="100" width="180"></td>
+                  <td>
+                    @if($new->img)
+                      <img src="{{asset('work/feature/'.$new->img)}}" alt="" height="100" width="180">
+                    @else
+                      <img class="img-responsive" src="{{asset('assets/img/no-img.png')}}" alt="" height="100" width="180">
+                    @endif
+                  </td>
                   <td>{{$new->position}}</td>
                   <td><a href="{{route($editroute,$new->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>
                   <td><a data-href="{{route($droute,$new->id)}}" class="btn btn-danger cat-delete" style="margin-left: 26px;"> Delete </a></td>

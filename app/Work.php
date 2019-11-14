@@ -16,11 +16,10 @@ class Work extends Model
         'slug','admin_id','title','img','position',
     ];
 
-     public function workfile() {
-        return $this->belongsTo(WorkFile::class, 'slug');
-    }
-
+    //  public function workfile() {
+    //     return $this->belongsTo(WorkFile::class, 'slug');
+    // }
      public function workfiles(){
-        return $this->hasMany('App\WorkFileMeta');
+        return $this->hasMany('App\WorkFile');
     }
 }

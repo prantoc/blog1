@@ -31,27 +31,27 @@
                @csrf
                <div class="form-group">
                   <label for="exampleFormControlInput1">Name</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" name="name">
+                  <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{old('name')}}">
                </div>
                <div class="form-group">
                   <label for="exampleFormControlInput1">Email address</label>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" name="email">
+                  <input type="email" class="form-control" id="exampleFormControlInput1" name="email" value="{{old('email')}}">
                </div>
                <div class="form-group">
                   <label for="exampleFormControlInput1">Subject</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" name="subject">
+                  <input type="text" class="form-control" id="exampleFormControlInput1" name="subject" value="{{old('subject')}}">
                </div>
                <div class="form-group">
                   <label for="exampleFormControlInput1">Upload your CV</label>
-                  <input type="file" class="form-control bg-secondary" id="exampleFormControlInput1" name="up_cv">
+                  <input type="file" class="form-control bg-secondary" id="exampleFormControlInput1" name="up_cv" value="{{old('up_cv')}}">
                </div>
                <div class="form-group">
                   <label for="exampleFormControlInput1">Upload your Portfolio</label>
-                  <input type="file" class="form-control bg-secondary" id="exampleFormControlInput1" name="up_protfolio">
+                  <input type="file" class="form-control bg-secondary" id="exampleFormControlInput1" name="up_protfolio" value="{{old('up_protfolio')}}">
                </div>
                <div class="form-group">
                   <label for="exampleFormControlTextarea1">Message</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mgs"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mgs"> {{old('mgs')}}</textarea>
                </div>
                <button type="submit" class="btn btn-primary">Submit</button>
             </form>

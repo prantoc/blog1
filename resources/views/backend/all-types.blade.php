@@ -3,6 +3,10 @@
 <div class="row">
    <div class="col-lg-12">
       <div class="card-box">
+     {{--    @if($workfiletypes->count())
+          <a data-href="{{route($dallroute)}}" class="btn btn-warning cat-delete text-blod float-right mb-2" style="margin-left: 26px;"> If you want to delete  {{$title}} </a>
+        @else
+        @endif --}}
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-sm mb-0 table table-bordered">
             <thead>
@@ -19,11 +23,9 @@
                   <th scope="row">{{$wft->id}}</th>
                   <td>{{$wft->type}}</td>
                   <td><a href="{{route($editroute,$wft->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>
-                  <td><a data-href="{{route($droute,$wft->id)}}" class="btn btn-danger cat-delete disabled" style="margin-left: 26px;"> Delete </a><br><br>
-
+                  <td>
+                    <a data-href="{{route($droute,$wft->id)}}" class="btn btn-danger cat-delete disabled" style="margin-left: 26px;"> Delete </a><br><br>
                     <span class="help-block bg-dark rounded p-1 text-white"><small>you can't delete these types</small></span>
-
-
                   </td>
                </tr>
                @endforeach

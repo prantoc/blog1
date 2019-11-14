@@ -81,7 +81,7 @@ Route::group(['prefix' => 'pagecareer'], function () {
 
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'dashboard/admin'], function () {
 
 Auth::routes();
 
@@ -93,6 +93,7 @@ Route::get('all-pages', 'BackendController@allPages')->name('all-pages');
 Route::get('edit-page/{id}', 'BackendController@editPage')->name('edit-page');
 Route::post('edit-page/{id}', 'BackendController@updatePage')->name('update-page');
 Route::get('delete-page/{id}', 'BackendController@deletePage')->name('delete-page');
+Route::get('delete-all-page', 'BackendController@deleteAllPage')->name('delete-all-page');
 
 // principle routes
 Route::get('add-principle', 'BackendController@addPrinciple')->name('add-principle');
@@ -101,6 +102,7 @@ Route::get('all-principle', 'BackendController@allPrinciple')->name('all-princip
 Route::get('edit-principle/{id}', 'BackendController@editPrinciple')->name('edit-principle');
 Route::post('edit-principle/{id}', 'BackendController@updatePrinciple')->name('update-principle');
 Route::get('delete-principle/{id}', 'BackendController@deletePrinciple')->name('delete-principle');
+Route::get('delete-all-principle', 'BackendController@deleteAllPrinciple')->name('delete-all-principle');
 
 
 // team routes
@@ -110,6 +112,7 @@ Route::get('all-team', 'BackendController@allTeam')->name('all-teams');
 Route::get('edit-team/{id}', 'BackendController@editTeam')->name('edit-team');
 Route::post('edit-team/{id}', 'BackendController@updateTeam')->name('update-team');
 Route::get('delete-team/{id}', 'BackendController@deleteTeam')->name('delete-team');
+Route::get('delete-all-team', 'BackendController@deleteAllTeam')->name('delete-all-team');
 
 // clints routes
 Route::get('add-client', 'BackendController@addClient')->name('add-client');
@@ -118,6 +121,7 @@ Route::get('all-clients', 'BackendController@allClient')->name('all-clients');
 Route::get('edit-client/{id}', 'BackendController@editClient')->name('edit-client');
 Route::post('edit-client/{id}', 'BackendController@updateClient')->name('update-client');
 Route::get('delete-client/{id}', 'BackendController@deleteClient')->name('delete-client');
+Route::get('delete-all-client', 'BackendController@deleteAllClient')->name('delete-all-client');
 
 
 
@@ -128,9 +132,12 @@ Route::get('all-careers', 'BackendController@allCareers')->name('all-careers');
 Route::get('edit-career/{id}', 'BackendController@editCareer')->name('edit-career');
 Route::post('edit-career/{id}', 'BackendController@updateCareer')->name('update-career');
 Route::get('delete-career/{id}', 'BackendController@deleteCareer')->name('delete-career');
+Route::get('delete-all-career', 'BackendController@deleteAllCareer')->name('delete-all-career');
 
 Route::get('all-appliers', 'BackendController@allAppliers')->name('all-appliers');
+Route::get('view-applier/{id}', 'BackendController@viewApplier')->name('view-applier');
 Route::get('delete-applier/{id}', 'BackendController@deleteApplier')->name('delete-applier');
+Route::get('delete-all-applier', 'BackendController@deleteAllApplier')->name('delete-all-applier');
 
 
 // work routes
@@ -140,6 +147,7 @@ Route::get('all-works', 'BackendController@allWorks')->name('all-works');
 Route::get('edit-work/{id}', 'BackendController@editWork')->name('edit-work');
 Route::post('edit-work/{id}', 'BackendController@updateWork')->name('update-work');
 Route::get('delete-work/{id}', 'BackendController@deleteWork')->name('delete-work');
+Route::get('delete-all-work', 'BackendController@deleteAllWork')->name('delete-all-work');
 
 // workfile routes
 Route::get('add-workfile', 'BackendController@addWorkFile')->name('add-workfile');
@@ -148,6 +156,7 @@ Route::get('all-workfiles', 'BackendController@allWorkFiles')->name('all-workfil
 Route::get('edit-workfile/{id}', 'BackendController@editWorkFile')->name('edit-workfile');
 Route::post('edit-workfile/{id}', 'BackendController@updateWorkFile')->name('update-workfile');
 Route::get('delete-workfile/{id}', 'BackendController@deleteWorkFile')->name('delete-workfile');
+Route::get('delete-all-workfile', 'BackendController@deleteAllWorkFile')->name('delete-all-workfile');
 
 // workfile img routes
 Route::get('add-workfileimg', 'BackendController@addWorkFileImg')->name('add-workfileimg');
@@ -156,6 +165,7 @@ Route::get('all-workfileimgs', 'BackendController@allWorkFileImgs')->name('all-w
 Route::get('edit-workfileimg/{id}', 'BackendController@editWorkFileImg')->name('edit-workfileimg');
 Route::post('edit-workfileimg/{id}', 'BackendController@updateWorkFileImg')->name('update-workfileimg');
 Route::get('delete-workfileimg/{id}', 'BackendController@deleteWorkFileImg')->name('delete-workfileimg');
+Route::get('delete-all-workfileimg', 'BackendController@deleteAllWorkFileImg')->name('delete-all-workfileimg');
 
 // workfile type routes
 Route::get('add-workfiletype', 'BackendController@addWorkFileType')->name('add-workfiletype');
@@ -164,6 +174,7 @@ Route::get('all-workfiletypes', 'BackendController@allWorkFileTypes')->name('all
 Route::get('edit-workfiletype/{id}', 'BackendController@editWorkFileType')->name('edit-workfiletype');
 Route::post('edit-workfiletype/{id}', 'BackendController@updateWorkFileType')->name('update-workfiletype');
 Route::get('delete-workfiletype/{id}', 'BackendController@deleteWorkFileType')->name('delete-workfiletype');
+Route::get('delete-all-workfiletype', 'BackendController@deleteAllWorkFileType')->name('delete-all-workfiletype');
 
 //Admin Routes
 Route::get('all-admins', 'BackendController@allAdmins')->name('all-admins');
@@ -179,7 +190,7 @@ Route::get('delete-admin/{id}', 'BackendController@deleteAdmin')->name('delete-a
 //Settings Routes
 Route::get('address', 'BackendController@getAddress')->name('add-address');
 Route::post('address', 'BackendController@postAddress')->name('post-address');
-Route::get('edit-address/{id}', 'BackendController@editAddress')->name('edit-address');
+Route::get('edit-website-settings/{id}', 'BackendController@editAddress')->name('edit-address');
 Route::post('update-address/{id}', 'BackendController@updateAddress')->name('update-address');
 
 Route::get('slider', 'BackendController@getSlider')->name('slider');

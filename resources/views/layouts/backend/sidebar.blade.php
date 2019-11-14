@@ -197,7 +197,7 @@
                   </li>
                   <li>
                      <a href="{{route('add-address')}}">
-                     <i class="mdi mdi-view-dashboard"></i> <span> Address map settings </span>
+                     <i class="mdi mdi-view-dashboard"></i> <span> Website settings </span>
                      </a>
                   </li>
                </ul>

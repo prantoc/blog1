@@ -16,9 +16,6 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/venobox.css')}}">
 
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{asset('assets/js/4/thumbnail-slider.css')}}" rel="stylesheet" type="text/css" />
@@ -55,13 +52,10 @@
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')
     </script>
-    <script src="{{asset('assets/js/plugins.js')}}"></script>
-    <script src="{{asset('assets/js/main.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/all.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.bundle.js')}}"></script>
-    <script src="{{asset('assets/js/venobox.min.js')}}"></script>
-    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins.js')}}"></script>
     <script >
         
     </script>

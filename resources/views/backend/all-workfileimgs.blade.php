@@ -3,6 +3,10 @@
 <div class="row">
    <div class="col-lg-12">
       <div class="card-box">
+        @if($workfileimgs->count())
+          <a data-href="{{route($dallroute)}}" class="btn btn-warning cat-delete text-blod float-right mb-2" style="margin-left: 26px;"> If you want to delete  {{$title}} </a>
+        @else
+        @endif
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-sm mb-0 table table-bordered">
             <thead>
@@ -24,8 +28,8 @@
                    <span href="{{route('all-workfiletypes')}}" class="btn btn-dark btn-rounded w-md"> Text</span>
                     @elseif($new->file_type == 2) 
                      <span href="{{route('all-workfiletypes')}}" class="btn btn-info btn-rounded w-md"> Image</span>
-                    @elseif($new->file_type == 3)
-                     <span href="{{route('all-workfiletypes')}}" class="btn btn-success btn-rounded w-md"> Video</span>
+                    @elseif($new->file_type == 4)
+                     <span href="{{route('all-workfiletypes')}}" class="btn btn-success btn-rounded w-md"> Drawing</span>
                     @endif 
 
                   </td>
@@ -44,14 +48,16 @@
                        <img src="{{asset('assets/img/noimage.jpg')}}" alt="$new->name" style="max-height: 75px;">
                        @endif
 
-                       @elseif($new->file_type == 3) 
-                       <video width="220" height="140" controls>
-                            <source src="{{asset('workfile/video/'.$new->file)}}" type="video/mp4">
-                        </video>
+                      @elseif($new->file_type == 4) 
+                          @if($new->file)
+                           <img src="{{asset('workfile/img/'.$new->file)}}" alt="{{$new->file}}" style="max-height: 75px;">
+                          @else
+                           <img src="{{asset('assets/img/noimage.jpg')}}" alt="$new->name" style="max-height: 75px;">
+                          @endif
 
-                         @endif
+                      @endif
                   </td>
-                  <td>{{$new->workfile->title}} [ {{$new->workfile->id}} ]</td>
+                  <td>{{$new->workfile->title}}</td>
                   <td><a href="{{route($editroute,$new->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>
                   <td><a data-href="{{route($droute,$new->id)}}" class="btn btn-danger cat-delete" style="margin-left: 26px;"> Delete </a></td>
                </tr>

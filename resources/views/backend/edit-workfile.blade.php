@@ -40,7 +40,7 @@
             <textarea name="details" id="details" cols="82" rows="17">{{ $post->details }}</textarea>
             @elseif($post->file_type == 2)
             <div class="form-group col-md-12 card-box dropzone"  id="myAwesomeDropzone">
-               <label for="inputZip" class="col-form-label">Upload Work File(Image/Video)</label>
+               <label for="inputZip" class="col-form-label">Upload Work File(Image/Video) <small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small></label>
                {{-- @if($post->file_type == 2) --}}
                @if($post->file)
                <img src="{{asset('workfile/img/'.$post->file)}}" alt="" style="max-height: 180px;">
@@ -48,15 +48,22 @@
                <img src="{{asset('assets/img/noimage.jpg')}}" alt="" style="max-height: 180px;">
                @endif
                {{-- @endif --}}
-               <input type="file" name="file" value="{{ old('file') }}" class="form-control" id="inputZip" multiple />
+               <input type="file" name="file" value="{{$post->file}}" class="form-control" id="inputZip" multiple />
                <span>(*you can upload max 5mb image file)</span>
             </div>
-            @elseif($post->file_type == 3)
-            <video width="320" height="240" controls>
-               <source src="{{asset('workfile/video/'.$post->file)}}" type="video/mp4">
-            </video>
-            <input type="file" name="file" value="{{ old('file') }}" class="form-control" id="inputZip" multiple />
-            <span>(*you can upload max 5mb video file)</span>
+            @elseif($post->file_type == 4)
+              <div class="form-group col-md-12 card-box dropzone"  id="myAwesomeDropzone">
+               <label for="inputZip" class="col-form-label">Upload Work File(Image/Video) <small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small></label>
+               {{-- @if($post->file_type == 2) --}}
+               @if($post->file)
+               <img src="{{asset('workfile/img/'.$post->file)}}" alt="" style="max-height: 180px;">
+               @else
+               <img src="{{asset('assets/img/noimage.jpg')}}" alt="" style="max-height: 180px;">
+               @endif
+               {{-- @endif --}}
+               <input type="file" name="file" value="{{$post->file}}" class="form-control" id="inputZip" multiple />
+               <span>(*you can upload max 5mb image file)</span>
+            </div>
             @endif
          </div>
       </div>
@@ -72,7 +79,7 @@
       <div class="col-md-8" id="meditor">
          @if($drpDwn)
          <div class="m-b-30">
-            <input id="title" type="text" class="form-control form-control-lg {{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ $post->workfile->title }}" required autofocus placeholder="Enter Page Title">
+            <input id="title" type="text" class="form-control form-control-lg {{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ $post->title }}" required autofocus placeholder="Enter Page Title">
             <div class="float-right">
                <button type="button" class="btn btn-icon btn-light" id="fullWidth"> <i class="icon-size-fullscreen" id="fic"></i> </button>
             </div>
@@ -84,9 +91,9 @@
             </select>
          </div>
          <div class="form-group col-md-12 card-box dropzone"  id="myAwesomeDropzone">
-            <label for="inputZip" class="col-form-label">Feature Image</label>
-            @if($post->workfile->img)
-            <img src="{{asset('workfile/feature/'.$post->workfile->img)}}" alt="" style="max-height: 180px;">
+            <label for="inputZip" class="col-form-label">Feature Image <small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small></label>
+            @if($post->img)
+            <img src="{{asset('workfile/feature/'.$post->img)}}" alt="" style="max-height: 180px;">
             @else
             <img src="{{asset('assets/img/noimage.jpg')}}" alt="" style="max-height: 180px;">
             @endif
@@ -121,7 +128,7 @@
          @endif --}}
          @if($hasCats)
          <div class="form-group col-md-12 card-box dropzone"  id="myAwesomeDropzone">
-            <label for="inputZip" class="col-form-label">Uploadff (Image/Video)</label>
+            <label for="inputZip" class="col-form-label">Uploadff (Image/Video) <small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small></label>
             {{-- <input type="file" name="img" value="{{ old('img') }}" class="form-control" id="inputZip"> --}}
             <input type="file" name="file" value="{{ old('file') }}" class="form-control" id="inputZip" multiple />
          </div>

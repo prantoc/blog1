@@ -1,6 +1,6 @@
 @extends('layouts.backend.dashboard')  
 @section('top-styles')
-<link href="{{ asset('assets/dashboard/libs/select2/css/select2.min.css')}}" rel="stylesheet" />
+<link href="{{ asset('assets/backend/libs/select2/css/select2.min.css')}}" rel="stylesheet" />
 <style>
    #gmaps-markers {
    height: 280px;
@@ -39,7 +39,7 @@
             Cancel
             </button> 
             <a class="btn btn-warning  m-l-5 float-left" href="{{route('edit-address', $page->id)}}">
-            Click an update Address!
+            Click an update Website settings!
             </a>
          </div>
       </form>
