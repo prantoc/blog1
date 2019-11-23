@@ -10,7 +10,7 @@
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-sm mb-0 table table-bordered">
             <thead>
-               <tr>
+               <tr class="text-center">
                   <th>ID</th>
                   <th>Types</th>
                   <th class="text-center" colspan="2"> Action</th>
@@ -19,7 +19,7 @@
             <tbody>
                  @if($workfiletypes->count())
                @foreach($workfiletypes as $wft)
-               <tr>
+               <tr class="text-center">
                   <th scope="row">{{$wft->id}}</th>
                   <td>{{$wft->type}}</td>
                   <td><a href="{{route($editroute,$wft->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>

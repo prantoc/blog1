@@ -23,7 +23,7 @@
             </div>
          </div>
          <div class="card m-b-30 card-body">
-            <h5 class="card-title">Publish Pages</h5>
+            <h5 class="card-title">Publish</h5>
             <button type="submit" class="btn btn-block btn-primary">Publish</button>
          </div>
       </div>

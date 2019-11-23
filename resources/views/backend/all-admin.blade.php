@@ -6,7 +6,7 @@
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-bordered mb-0">
             <thead>
-               <tr>
+               <tr class="text-center">
                   <th>#</th>
                   <th>Name</th>
                   <th>Email</th>
@@ -18,17 +18,17 @@
             <tbody>
                @if($admins->count())
                @foreach($admins as $admin)
-               <tr>
+               <tr class="text-center">
                   <th scope="row">{{$admin->id}}</th>
                   <td>{{$admin->name}}</td>
-                  <td>{{$admin->email}}</td>
+                  <td>{{str_limit($admin->email ,5)}}</td>
                   <td>{{$admin->name}}</td>
                   <td>{{$admin->created_at}}</td>
                   <td><a href="{{route($eroute,$admin->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>
                 @if($admin->id == 4)
                   <td>
                     
-                    <span class="help-block bg-dark rounded p-2 text-white"><small>you can't delete these Admin !</small></span>
+                    <small class="help-block bg-dark rounded py-2 text-white"> you can't delete these Admin ! </small>
                   </td>
                 @else
                   <td><a data-href="{{route($droute,$admin->id)}}" class="btn btn-danger cat-delete text-white" style="margin-left: 26px;"> Delete </a></td>
@@ -87,11 +87,6 @@
            };
        })(els[i]);
    }
-   
-   
-   
-   $('#datatable1').DataTable({
-       keys: true
-   });
+
 </script>
 @endsection

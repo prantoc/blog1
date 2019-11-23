@@ -9,7 +9,7 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="false" aria-expanded="false">
-                                <img src="{{asset('assets/backend/images/users/avatar-1.jpg')}}" alt="user" class="rounded-circle"> <span class="ml-1">Welcome  !    <span style="color: #F7941E;">{{ Auth::user()->name }} </span> <i class="mdi mdi-chevron-down"></i></span>
+                                <img src="{{asset('assets/img/Prachee-Thumb.png')}}" alt="user" class="rounded-circle"> <span class="ml-1">Welcome  !    <span style="color: #F7941E;">{{ Auth::user()->name }} </span> <i class="mdi mdi-chevron-down"></i></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
@@ -40,7 +40,7 @@
                                     <img src="{{asset('assets/img/prachee-logo.png')}}" alt="" height="20">
                                 </span>
                                 <span class="logo-sm">
-                                    <img src="{{asset('assets/img/prachee-logo.png')}}" alt="" height="28">
+                                    <img src="{{asset('assets/img/Prachee-Thumb.png')}}" alt="" height="28">
                                 </span>
                             </a>
                         </li>

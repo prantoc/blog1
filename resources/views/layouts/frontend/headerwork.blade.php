@@ -17,7 +17,7 @@
 
                         <li class="nav-item ml-2 nav-item dropdown @if($work->slug == request()->route('slug') ) active @endif">
                             <a class="nav-link" href="{{route('all-work-single',$work->slug)}}">{{$work->title}}
-                              <a class="nav-link dropdown-toggle" href="{{route('all-work-single',$work->slug)}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=""></a>
+                              <a class="nav-link {{ !$work->workfiles->isEmpty() ? 'dropdown-toggle':''}} " href="{{route('all-work-single',$work->slug)}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=""></a>
                             </a>
 
                                     @if(!$work->workfiles->isEmpty())

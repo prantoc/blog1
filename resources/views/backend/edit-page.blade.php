@@ -28,7 +28,11 @@
          <div class="form-group col-md-12 card-box">
             <label for="inputZip" class="col-form-label">Feature Image</label> <small class="text-dark font-weight-bold"> ( *if you don't want to change then you can blank ! )</small><br>
             @if($news->img)
-              <img src="{{asset('img/client/'.$news->img)}}" alt="" height="100" width="180">
+              @if($dfImg)
+                <img src="{{asset('img/pageimg/'.$news->img)}}" alt="" height="100" width="180">
+              @else
+                 <img src="{{asset('img/client/'.$news->img)}}" alt="" height="100" width="180">
+              @endif
             @else
               <img class="img-responsive" src="{{asset('assets/img/no-img.png')}}" alt="" height="100" width="180">
             @endif

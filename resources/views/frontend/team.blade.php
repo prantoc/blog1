@@ -10,9 +10,9 @@
             <div class="row text-center justify-content-center">
                <div class="col-md-2 col-sm-6 profile-img">
                   @if($t->img)
-                  <img src="{{asset('img/team/'.$t->img)}}" alt="$t->img" style="max-height: 180px;">
+                  <img src="{{asset('img/team/'.$t->img)}}" alt="" style="max-height: 180px;">
                   @else
-                  <img src="{{asset('assets/img/noimage.jpg')}}" alt="$t->name" style="max-height: 180px;">
+                  <img src="{{asset('assets/img/noimage.jpg')}}" alt="" style="max-height: 180px;">
                   @endif
                </div>
                <div class="col-md-8 col-sm-6">

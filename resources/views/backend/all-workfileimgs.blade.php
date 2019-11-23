@@ -10,7 +10,7 @@
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-sm mb-0 table table-bordered">
             <thead>
-               <tr>
+               <tr class="text-center">
                   <th>ID</th>
                   <th>File Type</th>
                   <th>File</th>
@@ -21,7 +21,7 @@
             <tbody>
                  @if($workfileimgs->count())
                @foreach($workfileimgs as $new)
-               <tr>
+               <tr class="text-center">
                   <th scope="row">{{$new->id}}</th>
                   <td>   
                     @if($new->file_type == 1)
@@ -57,7 +57,7 @@
 
                       @endif
                   </td>
-                  <td>{{$new->workfile->title}}</td>
+                  <td>{{$new->workfile->title}} [{{$new->workfile->id}}]</td>
                   <td><a href="{{route($editroute,$new->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>
                   <td><a data-href="{{route($droute,$new->id)}}" class="btn btn-danger cat-delete" style="margin-left: 26px;"> Delete </a></td>
                </tr>

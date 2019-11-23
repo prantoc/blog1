@@ -8,7 +8,11 @@
       @endif
       <div class="row">
          <div class="col-lg-7 col-md-12 col-sm-12 mt-5">
-            <img src="{{asset('img/page/'.$pageimg->img)}}" alt="" width="468" height="356">
+            @if($pageimg->img)
+              <img src="{{asset('img/pageimg/'.$pageimg->img)}}" alt="" width="468" height="356">
+            @else
+               <img class="img-responsive" src="{{asset('assets/img/noimage.jpg')}}" alt="" >
+            @endif
          </div>
          <div class="col-lg-5 col-md-12 col-sm-12">
             <div class="paragraph">

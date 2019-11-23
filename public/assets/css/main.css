@@ -124,7 +124,7 @@ textarea {
     background-color: #F7941E !important;
 }
 .dropdown-menu a{
-  font-size: 16px !important;
+  font-size: 15px !important;
   font-weight: bold;
 }
 .navbar-light .navbar-nav .nav-link.active{
@@ -193,7 +193,8 @@ textarea {
 
 .dropdown-menu{
   /*position: absolute;*/
-  margin-left: -97%;
+  margin-left: -120%;
+  top: 70%;
 }
 /*.dropdown-toggle::after {
     display: none !important;
@@ -347,8 +348,20 @@ color: #F7941E !important;
   position: fixed;
   left: 90%;
 }
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    font-size: 9px !important;
+    font-weight: bold;
+}
 }
 @media only screen and (max-width: 991px) {
+
+
+  .navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    font-size: 9px !important;
+    font-weight: bold;
+}
  .paragraph h3{
     font-size: 18px !important;
     font-weight: 700;

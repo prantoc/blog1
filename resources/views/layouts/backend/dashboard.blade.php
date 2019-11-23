@@ -14,16 +14,6 @@
         <!-- jvectormap -->
         <link href="{{asset('assets/backend/libs/jqvmap/jqvmap.min.css')}}" rel="stylesheet" />
 
-{{--         <!-- DataTables -->
-        <link href="{{asset('assets/backend/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"/>
-        <link href="{{asset('assets/backend/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"/> --}}
-
-{{-- 
-        <!-- DataTables -->
-        <link href="{{asset('assets/backend/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('assets/backend/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('assets/backend/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('assets/backend/libs/datatables.net-select-bs4/css/select.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"> --}}
 
         <!-- Icons css -->
         <link href="{{asset('assets/backend/libs/@mdi/font/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css" />
@@ -122,12 +112,6 @@
         <!-- Jvector map -->
         <script src="{{asset('assets/backend/libs/jqvmap/jquery.vmap.min.js')}}"></script>
         <script src="{{asset('assets/backend/libs/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-{{-- 
-        <!-- Datatable js -->
-        <script src="{{asset('assets/backend/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('assets/backend/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-        <script src="{{asset('assets/backend/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-        <script src="{{asset('assets/backend/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script> --}}
 
            <!-- Sweet Alert Js  -->
         <script src="{{ asset('assets/backend/libs/sweetalert2/sweetalert2.min.js') }}"></script>
@@ -139,16 +123,7 @@
         <!-- App js -->
         <script src="{{asset('assets/backend/js/jquery.core.js')}}"></script>
         <script src="{{asset('assets/backend/js/jquery.app.js')}}"></script>
-   {{--      <script>
-            $(document).ready(function() {
-                // Default Datatable
-                $('#datatable').DataTable({
-                    "pageLength": 5,
-                    "searching": false,
-                    "lengthChange": false
-                });
-            } );
-        </script> --}}
+
 
         <script>
             @if (session()->has('message'))

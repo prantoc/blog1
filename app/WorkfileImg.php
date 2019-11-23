@@ -13,7 +13,7 @@ class WorkfileImg extends Model
      * @var array
      */
     protected $fillable = [
-        'details', 'workfile_id','file','file_type',
+        'admin_id','details', 'workfile_id','file','file_type',
     ];
 
     public function work() {

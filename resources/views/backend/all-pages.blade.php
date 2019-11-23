@@ -10,7 +10,7 @@
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-sm mb-0 table table-bordered">
             <thead>
-               <tr>
+               <tr class="text-center">
                   <th>ID</th>
                   <th>Title</th>
                   <th>Description</th>
@@ -23,10 +23,10 @@
             <tbody>
                @if($news->count())
                @foreach($news as $new)
-               <tr>
+               <tr class="text-center">
                   <th scope="row">{{$new->id}}</th>
                   <td>{{$new->title}}</td>
-                  <td>{!! str_limit(strip_tags($new->details,20)) !!}</td>
+                  <td>{!! str_limit(strip_tags($new->details),50) !!}</td>
                   @if($hasCats)
                   <td>
                      @if($new->img)
@@ -37,7 +37,24 @@
                   </td>
                   @endif
                   <td><a href="{{route($editroute,$new->id)}}" class="btn btn-primary" style="margin-left: 26px;">Edit </a></td>
-                  <td><a data-href="{{route($droute,$new->id)}}" class="btn btn-danger cat-delete" style="margin-left: 26px;"> Delete </a></td>
+
+                  @if($dPage)
+                  <td>
+                    <a data-href="{{route($droute,$new->id)}}" class="btn btn-danger cat-delete" style="margin-left: 26px;"> Delete </a>
+                  </td>
+                  @else
+
+                  @if($new->admin_id == 4)
+                  <td>
+                    <a data-href="{{route($droute,$new->id)}}" class="btn btn-danger cat-delete disabled" style="margin-left: 26px;"> Delete </a><br><br>
+                    <span class="help-block bg-dark rounded p-1 text-white"><small>you can't delete these !</small></span>
+                  </td>
+                  @else
+                    <td>
+                    <a data-href="{{route($droute,$new->id)}}" class="btn btn-danger cat-delete" style="margin-left: 26px;"> Delete </a>
+                  </td>
+                  @endif
+                  @endif
                </tr>
                @endforeach
                     @else

@@ -10,9 +10,9 @@
             <div class="hovereffect">
                {{-- <img class="img-responsive" src="{{asset('assets/img/3.jpg')}}" alt=""> --}}
                @if($c->file)
-               <img class="img-responsive" src="{{asset('workfile/img/'.$c->file)}}" alt="$c->img" style="max-height: 180px;">
+               <img class="img-responsive" src="{{asset('workfile/img/'.$c->file)}}" alt="" style="max-height: 180px;">
                @else
-               <img class="img-responsive" src="{{asset('assets/img/noimage.jpg')}}" alt="John Doxe" style="max-height: 180px;">
+               <img class="img-responsive" src="{{asset('assets/img/noimage.jpg')}}" alt="" style="max-height: 180px;">
                @endif
                <div class="overlay">
                   <h2>{{$c->title}}</h2>

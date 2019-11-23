@@ -10,7 +10,7 @@
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-sm mb-0 table table-bordered">
             <thead>
-               <tr>
+               <tr class="text-center">
                   <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
@@ -24,7 +24,7 @@
             <tbody>
                @if($news->count())
                @foreach($news as $new)
-               <tr>
+               <tr class="text-center">
                   <th scope="row">{{$new->id}}</th>
                   <td>{{$new->name}}</td>
                   <td>{{$new->email}}</td>

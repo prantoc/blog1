@@ -110,7 +110,7 @@ class BackendController extends Controller
         }
         $validatedData = $request->validate([
             'current_password' => 'required',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:8|confirmed',
 
             'name' => 'required|string|max:255',
             'email' => 'required',
@@ -138,21 +138,24 @@ class BackendController extends Controller
     public function deleteAdmin($id) {
 
         $user = User::findOrFail($id);
-        $cid = Career::whereAdminId($id)->delete();
-        $clid = Client::whereAdminId($id)->delete();
-        $pImgid = PageImg::whereAdminId($id)->delete();
-        $pid = Page::whereAdminId($id)->delete();
-        $tid = Team::whereAdminId($id)->delete();
-        $wfid = WorkFile::whereAdminId($id)->delete();
-        $wid = Work::whereAdminId($id)->delete();
-
-
+        
         if (Auth::user()->id == $user->id) {
    
         session()->flash('message', 'Opps! Sorry You Cant Delete Your Own Information!');
         Session::flash('type', 'warning');
         return redirect()->back();
-        }else{
+        }
+        else{
+
+            $cid = Career::whereAdminId($id)->delete();
+            $clid = Client::whereAdminId($id)->delete();
+            $pImgid = PageImg::whereAdminId($id)->delete();
+            $pid = Page::whereAdminId($id)->delete();
+            $tid = Team::whereAdminId($id)->delete();
+            $wid = Work::whereAdminId($id)->delete();
+            $wfid = WorkFile::whereAdminId($id)->delete();
+            $wfImgid = WorkfileImg::whereAdminId($id)->delete();
+
             $user->delete();
             session()->flash('message', 'Admin SuccessFully Deleted!');
             Session::flash('type', 'success');
@@ -168,7 +171,8 @@ class BackendController extends Controller
     	$data['title'] = 'Add Page';
     	$data['aroute'] = "post-page";
     	$data['hasCats'] = 0;
-         $data['drpDwn'] = 0;
+        $data['drpDwn'] = 0;
+        $data['hasPrince'] = 0;
       
         return view('backend.add-page', $data);
     }
@@ -221,6 +225,7 @@ class BackendController extends Controller
         $data['droute'] = "delete-page";
         $data['dallroute'] = "delete-all-page";
         $data['hasCats'] = 0;
+        $data['dPage'] = 0;
         $data['news'] = Page::orderBy('id', 'desc')->paginate(10);
 
         return view('backend.all-pages', $data);
@@ -272,7 +277,16 @@ class BackendController extends Controller
     public function deleteAllPage() {
 
         $dPage = Page::all();
+        $aid = Page::whereAdminId(4);
+
+        if ($aid) {
+        session()->flash('message', 'You cant delete Backup Account created file!');
+        Session::flash('type', 'worning');
+        return redirect()->back();
+        }else{
+
         $dPage = Page::whereNotNull('id')->delete();
+        }
 
         session()->flash('message', 'SuccessFully Deleted All Page File!');
         Session::flash('type', 'success');
@@ -287,7 +301,8 @@ class BackendController extends Controller
     {
     	$data['title'] = 'Add Principle';
     	$data['aroute'] = "post-principle";
-    	$data['hasCats'] = 1;
+    	$data['hasCats'] = 0;
+        $data['hasPrince'] = 1;
         $data['drpDwn'] = 0;
 
         return view('backend.add-page', $data);
@@ -377,6 +392,7 @@ class BackendController extends Controller
         $data['droute'] = "delete-principle";
         $data['dallroute'] = "delete-all-principle";
         $data['hasCats'] = 0;
+        $data['dPage'] = 0;
         $data['news'] = PageImg::orderBy('id', 'desc')->paginate(10);
 
         return view('backend.all-pages', $data);
@@ -387,6 +403,7 @@ class BackendController extends Controller
         $data['title'] = 'Edit Principle Page';
         $data['route'] = 'update-principle';
         $data['hasCats'] = 1;
+        $data['dfImg'] = 1; 
         $data['news'] = PageImg::whereId($id)->first();
 
         return view('backend.edit-page', $data);
@@ -441,9 +458,12 @@ class BackendController extends Controller
 
     public function deletePrinciple($id) {
 
-        $dprinc = PageImg::findOrFail($id);
-        unlink(public_path() .  '/img/pageimg/' . $dprinc->img );
-        $dprinc->delete();
+        $pimg = PageImg::findOrFail($id);
+        if ($pimg->img) {
+            unlink(public_path() .  '/img/pageimg/' . $pimg->img );
+        }
+
+        $pimg->delete();
 
         session()->flash('message', 'Principle Page SuccessFully Deleted!');
         Session::flash('type', 'success');
@@ -599,8 +619,10 @@ class BackendController extends Controller
 
         $dteam = Team::findOrFail($id);
 
-        unlink(public_path() .  '/img/team/' . $dteam->img );
-    
+        if ($dteam->img) {
+            unlink(public_path() .  '/img/team/' . $dteam->img );
+        }
+
         $dteam->delete();
 
         session()->flash('message', 'Team SuccessFully Deleted!');
@@ -628,6 +650,7 @@ class BackendController extends Controller
     	$data['aroute'] = "post-client";
     	$data['hasCats'] = 1;
         $data['drpDwn'] = 0;
+        $data['hasPrince'] = 0;
       
         return view('backend.add-page', $data);
     }
@@ -637,7 +660,7 @@ class BackendController extends Controller
        $this->Validate($request, [
             'title' => 'required|string|max:255',
 			'details' => 'required|string|min:5',
-			'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:8048',
+			'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
         
         ]);
 
@@ -688,6 +711,7 @@ class BackendController extends Controller
         $data['droute'] = "delete-client";
         $data['dallroute'] = "delete-all-client";
         $data['hasCats'] = 1;
+        $data['dPage'] = 1;
         $data['news'] = Client::orderBy('id', 'desc')->paginate(10);
 
         return view('backend.all-pages', $data);
@@ -697,6 +721,7 @@ class BackendController extends Controller
         $data['title'] = 'Edit Client';
         $data['route'] = 'update-client';
         $data['hasCats'] = 1;
+        $data['dfImg'] = 0; 
         $data['news'] = Client::whereId($id)->first();
 
         return view('backend.edit-page', $data);
@@ -757,7 +782,9 @@ class BackendController extends Controller
     public function deleteClient($id) {
 
         $dclient = Client::findOrFail($id);
+        if ($dclient->img) {
         unlink(public_path() .  '/img/client/' . $dclient->img );
+        }
         $dclient->delete();
 
         session()->flash('message', 'Client SuccessFully Deleted!');
@@ -784,7 +811,8 @@ class BackendController extends Controller
         $data['title'] = 'Add Career';
         $data['aroute'] = "post-career";
         $data['hasCats'] = 0;
-          $data['drpDwn'] = 0;
+        $data['drpDwn'] = 0;
+        $data['hasPrince'] = 0;
       
         return view('backend.add-page', $data);
     }
@@ -838,6 +866,7 @@ class BackendController extends Controller
     $data['droute'] = "delete-career";
     $data['dallroute'] = "delete-all-career";
     $data['hasCats'] = 0;
+    $data['dPage'] = 0;
     $data['news'] = Career::orderBy('id', 'desc')->paginate(10);
 
     return view('backend.all-pages', $data);
@@ -923,8 +952,10 @@ class BackendController extends Controller
     public function deleteApplier($id) {
 
         $applier = Apply::findOrFail($id);
+        if ($applier->up_cv && $applier->up_protfolio) {
         unlink(public_path() .  '/uploaded_cv/' . $applier->up_cv );
         unlink(public_path() .  '/uploaded_cv/' . $applier->up_protfolio );
+        }
         $applier->delete();
 
         session()->flash('message', 'Applier Details SuccessFully Delete!');
@@ -1052,6 +1083,7 @@ class BackendController extends Controller
         $data['dallroute'] = "delete-all-work";
         $data['hasCats'] = 0;
         $data['news'] = Work::orderBy('id', 'desc')->paginate(10);
+         // $data['totalWorkfiles'] = WorkFile::where('id')->get()->count();
 
         return view('backend.all-works', $data);
     }
@@ -1100,7 +1132,7 @@ class BackendController extends Controller
             }
         }
 
-        $request->img->move(public_path('img/feature/'), $img);
+        $request->img->move(public_path('work/feature/'), $img);
 
 
         $uprinc['img'] = $img;
@@ -1119,18 +1151,35 @@ class BackendController extends Controller
 
     public function deleteWork($id) {
 
-        $dprinc = Work::findOrFail($id);
-        $wfid = WorkFile::whereWorkId($id);
-        // $wfimg = WorkfileImg::whereWorkfileId($id);
+        $work = Work::findOrFail($id);
 
-        foreach($wfimg as $wid) {
-            $appslot = WorkfileImg::whereWorkfileId($wid)->delete();
+        if ($work->img ) {
+            unlink(public_path() .  '/work/feature/' . $work->img );
         }
-        $wfid->delete();
-        $dprinc->delete();
+
+        $wfs = WorkFile::whereWorkId($id)->get();
+
+         foreach($wfs as $wf) {
+
+             if ($wf->img) {
+                        unlink(public_path() .  '/workfile/feature/' . $wf->img );
+                    }
+
+            $wfis = WorkfileImg::whereWorkfileId($wf->id)->get();
+            foreach($wfis as $wfi) {
+                    if ($wfi->file) {
+                        unlink(public_path() .  '/workfile/img/' . $wfi->file );
+                    }
+                
+                $wfi->delete();
+            }
+                $wf->delete();
+        }
+
+        $work->delete();
 
 
-        session()->flash('message', 'Work SuccessFully Delete!');
+        session()->flash('message', 'Work, Work file & Work file Images Successfully Delete!');
         Session::flash('type', 'success');
 
         return redirect()->back();
@@ -1248,8 +1297,9 @@ class BackendController extends Controller
         $data['dallroute'] = "delete-all-workfile";
         $data['hasCats'] = 0;
         $data['news'] = WorkFile::orderBy('id', 'desc')->paginate(10);
+        // $data['totalWorkfileImgs'] = WorkfileImg::WhereWorkfileId('id')->get()->count();
         // $data['cats'] = WorkFileMeta::whereWorkId($id)->first();
-        
+         // $data['totalWorkfileImgs'] = WorkfileImg::WhereWorkfileId($dwf)->get()->count();
         return view('backend.all-workfiles', $data);
     }
 
@@ -1329,10 +1379,23 @@ class BackendController extends Controller
     public function deleteWorkFile($id) {
 
         $dwf = WorkFile::findOrFail($id);
-        unlink(public_path() .  '/workfile/feature/' . $dwf->img );
-        $dwfi = WorkfileImg::whereWorkfileId($id)->delete();
-        unlink(public_path() .  '/workfile/img/' . $dwfi->file );
-        $dprinc->delete();
+
+        if ($dwf->img) {
+           unlink(public_path() .  '/workfile/feature/' . $dwf->img );
+        }
+        
+        $dwfis = WorkfileImg::whereWorkfileId($id)->get();
+        foreach ($dwfis as $dwfi) {
+            if ($dwfi->file) {
+                unlink(public_path() .  '/workfile/img/' . $dwfi->file );
+            }
+        }
+
+
+        
+        $dwfis = WorkfileImg::whereWorkfileId($id)->delete();
+
+        $dwf->delete();
 
         session()->flash('message', 'WorkFile SuccessFully Deleted!');
         Session::flash('type', 'success');
@@ -1386,50 +1449,25 @@ class BackendController extends Controller
            ],$messages);
 
 
-             // $types = WorkFileType::orderBy('id', 'desc')->count();
-         $details = $request->details;
-         $file= $request->file;
+        $uid = Auth::user()->id;
+        $details = $request->details;
+        $rfile= $request->file;
 
-          if ($details || $file) {
+          if ($details || $rfile) {
      
 
         if ($request->file_type == 1) {
 
-                $ntm['details'] = $request->details;
+                $wfi['details'] = $request->details;
+                $wfi['workfile_id'] = $request->workfile_id;
+                $wfi['admin_id'] = $uid;
+                $wfi['file_type'] = $request->file_type;
+
+                WorkfileImg::create($wfi);
 
         }elseif($request->file_type == 2){
            
-    //         if ($request->file) {
-
-    //             $files = $request->file('file');
-    //              foreach ($files as $f) {
-
-    //         $filename = pathinfo($f->getClientOriginalName(), PATHINFO_FILENAME);
-
-    //         $filename = preg_replace('!\s+!', ' ', $filename);
-    //         $filename = str_replace(' ', '-', $filename);
-    //         $filename = strtolower($filename);
-
-    //         $file = $filename . '.' . $f->getClientOriginalExtension();
-
-    //         $count = 0;
-    //         $filecount = 1;
-
-    //         while ($count < 1) {
-    //             $hasFile = WorkfileImg::whereFile($file)->first();
-    //             if ($hasFile) {
-    //                 $newfilename = $filename . '_' . $filecount;
-    //                 $file = $newfilename . '.' . $f->getClientOriginalExtension();
-    //                 $filecount++;
-    //             } else {
-    //                 $count++;
-    //             }
-    //         }
-    //         $f->move(public_path('workfile/img/'), $file);
-    //         $ntm['file'] = $file;
-    //     }
-        
-    // }
+   
 
         if ($request->file) {
         $files = $request->file('file');
@@ -1443,13 +1481,50 @@ class BackendController extends Controller
             $imgname = str_replace(' ', '-', $imgname);
 
             $img = $imgname . '.' . $file->getClientOriginalExtension();
-            // $img = 'Con_'.$lcon. '_' . $img;
+            $img = time() . $img;
 
             $file->move(public_path('workfile/img/'), $img);
 
-            $ntm['file'] = $img;
+            $wfi['file'] = $img;
 
             // ConImg::create($newimg);
+            $wfi['workfile_id'] = $request->workfile_id;
+            $wfi['file_type'] = $request->file_type;
+            $wfi['admin_id'] = $uid;
+
+            WorkfileImg::create($wfi);
+           
+        }
+    }
+
+    }elseif($request->file_type == 4){
+           
+   
+
+        if ($request->file) {
+        $files = $request->file('file');
+        foreach ($files as $file) {
+
+            // $newimg['con_id'] = $lcon;
+
+            $imgname = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+
+            $imgname = preg_replace('!\s+!', ' ', $imgname);
+            $imgname = str_replace(' ', '-', $imgname);
+
+            $img = $imgname . '.' . $file->getClientOriginalExtension();
+            $img = time() . $img;
+
+            $file->move(public_path('workfile/img/'), $img);
+
+            $wfi['file'] = $img;
+
+            // ConImg::create($newimg);
+            $wfi['workfile_id'] = $request->workfile_id;
+            $wfi['file_type'] = $request->file_type;
+            $wfi['admin_id'] = $uid;
+
+            WorkfileImg::create($wfi);
            
         }
     }
@@ -1482,13 +1557,10 @@ class BackendController extends Controller
 
             $request->file->move(public_path('workfile/video/'), $file);
 
-            $ntm['file'] = $file;
+            $wfi['file'] = $file;
         }
      }
-        $ntm['workfile_id'] = $request->workfile_id;
-        $ntm['file_type'] = $request->file_type;
-
-        WorkFileImg::create($ntm);
+        
 
         session()->flash('message', 'Workfile Image succefully Added!');
         Session::flash('type', 'success');
@@ -1543,6 +1615,7 @@ class BackendController extends Controller
            ],$messages);
 
              $ntm = WorkfileImg::find($id);
+             $uid = Auth::user()->id;
 
         if ($request->file_type == 1) {
 
@@ -1610,6 +1683,7 @@ class BackendController extends Controller
      }
         $ntm['workfile_id'] = $request->workfile_id;
         $ntm['file_type'] = $request->file_type;
+        $ntm['admin_id'] = $uid;
 
         $ntm->save();
 
@@ -1621,7 +1695,11 @@ class BackendController extends Controller
     public function deleteWorkFileImg($id) {
 
         $dwfi = WorkfileImg::findOrFail($id);
-        unlink(public_path() .  '/workfile/img/' . $dwfi->file );
+
+        if ($dwfi->file ) {
+            unlink(public_path() .  '/workfile/img/' . $dwfi->file );
+        }
+   
         $dwfi->delete();
 
         session()->flash('message', 'Workfile image SuccessFully Deleted!');
@@ -1808,7 +1886,7 @@ class BackendController extends Controller
             //count == 0
         }
         
-        $request->img->move(public_path('img/slider'), $img);
+        $request->img->move(public_path('img/slider/'), $img);
 
         $slider['img'] = $img;
         $slider['position'] = $slides+1;
@@ -1856,7 +1934,7 @@ class BackendController extends Controller
             }
             //count == 0
         }
-        $request->img->move(public_path('img/slider'), $img);
+        $request->img->move(public_path('img/slider/'), $img);
         $slide['img'] = $img;
         }
         $slide['position'] = $request->position;
@@ -1871,7 +1949,9 @@ class BackendController extends Controller
     public function deleteSlider($id)
     {
         $slide = Slider::findOrFail($id);
-        unlink(public_path() .  '/img/slider' . $slide->img );
+        if ($slide->img ) { 
+        unlink(public_path() .  '/img/slider/' . $slide->img );
+        }
         $slide->delete();
 
         session()->flash('message', 'Slider Successfully Deleted!');

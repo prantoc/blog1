@@ -16,11 +16,6 @@ class WorkFile extends Model
          'admin_id','title','slug','img','work_id',
     ];
 
-
-    // public function work() {
-    //     return $this->belongsTo(Work::class, 'work_id');
-    // }
-
     public function work() {
         return $this->belongsTo(Work::class, 'work_id');
     }
@@ -28,7 +23,4 @@ class WorkFile extends Model
         return $this->belongsTo(WorkfileImg::class, 'workfile_id');
     }
 
-    //  public function work(){
-    //     return $this->hasMany('App\WorkFileMeta');
-    // }
 }

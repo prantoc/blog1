@@ -10,7 +10,7 @@
          <h4 class="m-t-0 header-title">{{$title}}</h4>
          <table class="table table-sm mb-0 table table-bordered">
             <thead>
-               <tr>
+               <tr class="text-center">
                   <th>ID</th>
                   <th>Name</th>
                   <th>Position</th>
@@ -22,7 +22,7 @@
             <tbody>
                @if($teams->count())
                @foreach($teams as $t)
-               <tr>
+               <tr class="text-center">
                   <th scope="row">{{$t->id}}</th>
                   <td>{{$t->name}}</td>
                   <td>{{$t->position}}</td>
