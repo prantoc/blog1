@@ -56,7 +56,7 @@
    infoWindow = '',
    latEl = document.querySelector( '#labLat' ),
    longEl = document.querySelector( '#labLong' ),
-   city = document.querySelector( '#city' ),
+   // city = document.querySelector( '#city' ),
    addressEl = document.querySelector( '#address' );
    
    
@@ -109,13 +109,13 @@
    
      resultArray =  places[0].address_components;
    
-     // Get the city and set the city input value to the one selected
-     for( var i = 0; i < resultArray.length; i++ ) {
-       if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
-         citi = resultArray[ i ].long_name;
-         city.value = citi;
-       }
-     }
+     // // Get the city and set the city input value to the one selected
+     // for( var i = 0; i < resultArray.length; i++ ) {
+     //   if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
+     //     citi = resultArray[ i ].long_name;
+     //     city.value = citi;
+     //   }
+     // }
    
      // Closes the previous info window if it already exists
      if ( infoWindow ) {
@@ -148,14 +148,14 @@
          address = result[0].formatted_address;
          resultArray =  result[0].address_components;
    
-         // Get the city and set the city input value to the one selected
-         for( var i = 0; i < resultArray.length; i++ ) {
-           if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
-             citi = resultArray[ i ].long_name;
-             console.log( citi );
-             city.value = citi;
-           }
-         }
+         // // Get the city and set the city input value to the one selected
+         // for( var i = 0; i < resultArray.length; i++ ) {
+         //   if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
+         //     citi = resultArray[ i ].long_name;
+         //     console.log( citi );
+         //     city.value = citi;
+         //   }
+         // }
          addressEl.value = address;
          latEl.value = lat;
          longEl.value = long;

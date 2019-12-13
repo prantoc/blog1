@@ -15,7 +15,7 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
-                                    <h6 class="text-overflow m-0">If you want to logout this admin dashboard !</h6>
+                                    <h6 class="text-overflow m-0">If you want to logout!</h6>
                                 </div>
     
                                

@@ -97,6 +97,8 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+
 .mydropdown > li > a{
   font-size: 12px !important;
 }
@@ -112,10 +114,17 @@ textarea {
   color: gray !important;
 }
 
-.navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav .work, .home{
     color: rgba(0,0,0,.5);
-    font-size: 15px !important;
+    font-size: 20px !important;
     font-weight: bold;
+    text-transform: lowercase;
+}
+.navbar-light .navbar-nav .nav-item .navbar-nav .nav-link{
+    color: rgba(0,0,0,.5);
+    font-size: 14px !important;
+    font-weight: bold;
+     text-transform: lowercase;
 }
 .dropdown-item.active{
    /*color: #F7941E !important;*/
@@ -126,6 +135,7 @@ textarea {
 .dropdown-menu a{
   font-size: 15px !important;
   font-weight: bold;
+   text-transform: lowercase;
 }
 .navbar-light .navbar-nav .nav-link.active{
   color: rgb(247, 148, 30);
@@ -171,6 +181,7 @@ textarea {
 
 .worksub-pos{
     margin-top: -17px;
+  margin-right: -60px !important;
 }
 .menu-pos{
     position: absolute;
@@ -183,10 +194,6 @@ textarea {
     right: 0%;
 }
 
-.work-home{
-  position: fixed;
-  left: 91%;
-}
 .dropdown-toggle{
   position: absolute;top: 3%;left: 86%;
 }
@@ -206,6 +213,10 @@ textarea {
 .navbar-nav .nav-item:hover .dropdown-menu{
   display: block !important;
 }*/
+
+ .nav-item > .work{
+  font-size: 20px !important;
+}
 .copyright{
   color: gray !important;
 }
@@ -344,15 +355,26 @@ color: #F7941E !important;
     font-size: 26px !important;
   }
 
-.work-home{
-  position: fixed;
-  left: 90%;
-}
-.navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav .work, .home{
     color: rgba(0,0,0,.5);
-    font-size: 9px !important;
+    font-size: 20px !important;
     font-weight: bold;
+    text-transform: lowercase;
 }
+.navbar-light .navbar-nav .nav-item .navbar-nav .nav-link{
+    color: rgba(0,0,0,.5);
+    font-size: 12px !important;
+    font-weight: bold;
+     text-transform: lowercase;
+}
+
+
+.worksub-pos{
+    margin-top: -9px;
+  margin-right: -70px !important;
+}
+
+
 }
 @media only screen and (max-width: 991px) {
 
@@ -385,7 +407,7 @@ color: #F7941E !important;
 .worksub-pos{
     margin-top: -21px;
     position: absolute;
-    right: 0;
+    right: 70px;
 }
   .navbar-light .navbar-nav .nav-link {
     color: rgba(0,0,0,.5);
@@ -393,9 +415,11 @@ color: #F7941E !important;
     font-weight: bold;
 }
 
-.work-home{
-  position: fixed;
-  left: 88%;
+.navbar-light .navbar-nav .nav-item .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    font-size: 9px !important;
+    font-weight: bold;
+    text-transform: lowercase;
 }
 .dropdown-toggle{
   position: absolute;
@@ -405,6 +429,11 @@ color: #F7941E !important;
 .dropdown-menu {
     margin-left: 0;
     min-width: 1rem;
+}
+
+  .work-home{
+  position: fixed;
+  left: 94%;
 }
 
 }
@@ -417,7 +446,7 @@ color: #F7941E !important;
 
   .work-home{
   position: fixed;
-  left: 85%;
+  left: 94%;
 }
  
 }
@@ -426,8 +455,21 @@ color: #F7941E !important;
 
   .work-home{
   position: fixed;
-  left: 82%;
+  left: 92%;
   }
+
+    .navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    font-size: 13px !important;
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav .nav-item .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    font-size: 8px !important;
+    font-weight: bold;
+    text-transform: lowercase;
+}
  
 }
 

@@ -1003,7 +1003,7 @@ class BackendController extends Controller
 
           $works = Work::orderBy('id', 'desc')->count();
 
-        if ($works >= 11) {
+        if ($works >= 12) {
         session()->flash('message', 'Change an existing Work Name or Delete and add a new one as, Adding more than 11 Work can Effect website menu bar!');
         Session::flash('type', 'warning');
         return redirect()->back();
@@ -2008,7 +2008,7 @@ class BackendController extends Controller
     public function editAddress($id)
     {
         $data['title'] = 'Update Website Settings';
-        $data['eroute'] = "update-address";
+        $data['uroute'] = "update-address";
         $data['page'] = AddressMap::find(1);
         // $data['page'] = AddressMap::whereId($id)->first();
         return view('backend.edit-address-map', $data);

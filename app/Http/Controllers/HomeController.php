@@ -248,7 +248,7 @@ class HomeController extends Controller
 // workfile-area-------------------->>>>
     public function getAllWorkSingle($slug) 
     {
-         // $data['adms'] = AddressMap::find(1);
+         $data['adms'] = AddressMap::find(1);
         $data['works'] = Work::orderBy('position', 'asc')->get();
 
         $nid = Work::whereSlug($slug)->first();
@@ -264,7 +264,7 @@ class HomeController extends Controller
 // Work image slider page -area-------------------->>>>
      public function getWorkImg($slug) 
     {
-         // $data['adms'] = AddressMap::find(1);
+         $data['adms'] = AddressMap::find(1);
         $data['works'] = Work::orderBy('position', 'asc')->get();
 
         $nid = WorkFile::whereSlug($slug)->first();

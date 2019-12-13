@@ -48,7 +48,7 @@
                     <!-- Page title box -->
                       <div class="page-title-box">
                             <ol class="breadcrumb float-right">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Prachee Shapati Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">pracheesthapati dashboard</a></li>
                                 <li class="breadcrumb-item active">{{$title}}</li>
                             </ol>
                             <h4 class="page-title">Dashboard</h4>

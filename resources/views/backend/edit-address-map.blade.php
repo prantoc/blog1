@@ -11,7 +11,7 @@
 <div class="col-lg-12">
    <div class="card-box">
       <h4 class="header-title m-t-0">{{$title}}</h4>
-      <form method="POST" action="{{ route($eroute, $page->id) }}" enctype="multipart/form-data">
+      <form method="POST" action="{{ route($uroute, $page->id) }}" enctype="multipart/form-data">
          @csrf
          <div class="row">
             <div class="col-md-4">
@@ -65,9 +65,9 @@
             <button class="btn btn-primary waves-effect waves-light" type="submit">
             Submit
             </button>
-            <button type="reset" class="btn btn-light waves-effect m-l-5">
+       {{--      <button type="reset" class="btn btn-light waves-effect m-l-5">
             Cancel
-            </button>
+            </button> --}}
          </div>
       </form>
    </div>
@@ -93,7 +93,7 @@
    infoWindow = '',
    latEl = document.querySelector( '#labLat' ),
    longEl = document.querySelector( '#labLong' ),
-   city = document.querySelector( '#city' ),
+   // city = document.querySelector( '#city' ),
    addressEl = document.querySelector( '#address' );
    
    
@@ -146,13 +146,13 @@
    
      resultArray =  places[0].address_components;
    
-     // Get the city and set the city input value to the one selected
-     for( var i = 0; i < resultArray.length; i++ ) {
-       if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
-         citi = resultArray[ i ].long_name;
-         city.value = citi;
-       }
-     }
+     // // Get the city and set the city input value to the one selected
+     // for( var i = 0; i < resultArray.length; i++ ) {
+     //   if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
+     //     citi = resultArray[ i ].long_name;
+     //     city.value = citi;
+     //   }
+     // }
    
      // Closes the previous info window if it already exists
      if ( infoWindow ) {
@@ -173,7 +173,7 @@
     * Finds the new position of the marker when the marker is dragged.
     */
    google.maps.event.addListener( marker, "dragend", function ( event ) {
-     var lat, long, address, resultArray, citi;
+     var lat, long, address, resultArray;
    
      console.log( 'i am dragged' );
      lat = marker.getPosition().lat();
@@ -186,13 +186,13 @@
          resultArray =  result[0].address_components;
    
          // Get the city and set the city input value to the one selected
-         for( var i = 0; i < resultArray.length; i++ ) {
-           if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
-             citi = resultArray[ i ].long_name;
-             console.log( citi );
-             city.value = citi;
-           }
-         }
+         // for( var i = 0; i < resultArray.length; i++ ) {
+         //   if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
+         //     citi = resultArray[ i ].long_name;
+         //     console.log( citi );
+         //     city.value = citi;
+         //   }
+         // }
          addressEl.value = address;
          latEl.value = lat;
          longEl.value = long;
