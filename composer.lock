@@ -488,7 +488,7 @@
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
-                "league/flysystem": "^1.0.8",
+                "league/flysystem": "2.1.1",
                 "monolog/monolog": "^1.12",
                 "nesbot/carbon": "^1.26.3 || ^2.0",
                 "opis/closure": "^3.1",
@@ -3985,7 +3985,7 @@
                 "symfony/console": "~2.8|~3.3|~4.0"
             },
             "require-dev": {
-                "laravel/framework": "5.8.*",
+                "laravel/framework": "6.20.44",
                 "nunomaduro/larastan": "^0.3.0",
                 "phpstan/phpstan": "^0.11",
                 "phpunit/phpunit": "~8.0"
